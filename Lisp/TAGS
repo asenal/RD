@@ -1,0 +1,68 @@
+
+ansi_clisp.lisp,596
+(defun myand 2,30
+(defparameter *glob* 11,227
+(defconstant cc 12,252
+(defparameter *L* 18,389
+(defun mysqures_do 27,638
+(defun mysqures_recursion 32,774
+(defun mylength 44,1045
+(defun mylength_recursion 51,1211
+(defun ask-number 60,1375
+(defun subtree(96,2086
+(defun mymemberif 115,2574
+(defun mirror? 141,3392
+(defstruct point 199,5053
+(defstruct (point 206,5280
+(defun print-point 211,5443
+(defpackage "asenal-test"225,5854
+(defun mycat 277,7015
+(defmacro backwards 300,7585
+(defun make-cd 302,7668
+(defvar *DB* 307,7859
+(defun add-record 308,7877
+(defun dump-DB 309,7916
+
+binary_search_tree.lisp,117
+(defstruct (node 1,0
+(defun bst-insert 6,119
+(defun bst-find 22,456
+(defun bst-min 32,671
+(defun bst-max 36,746
+
+bread_firts_search.lisp,71
+(defun shortest-path 4,194
+(defun bfs 7,269
+(defun new-paths 20,880
+
+cd_store.lisp,274
+(defun myand 2,30
+(defparameter *glob* 11,227
+(defconstant cc 12,252
+(defparameter *L* 18,389
+(defun mysqures 27,532
+(defun ask-number 36,715
+(defmacro backwards 67,1052
+(defun make-cd 69,1135
+(defvar *DB* 74,1326
+(defun add-record 75,1344
+(defun dump-DB 76,1383
+
+ring_buf.lisp,228
+(defstruct buf1,0
+(defun bref 4,62
+(defun (setf 8,148
+(defun new-buf 13,270
+(defun buf-insert 16,328
+(defun buf-pop 19,393
+(defun buf-next 25,533
+(defun buf-reset 29,626
+(defun buf-clear 33,720
+(defun buf-flush 37,828
+
+run_length_coding.lisp,111
+(defun n-elts 1,0
+(defun list-of 6,68
+(defun compr 11,159
+(defun compress 20,368
+(defun uncompress 25,447
