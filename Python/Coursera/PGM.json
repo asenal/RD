@@ -1,0 +1,382 @@
+{
+   "C25-TreeStructured_CPDs_1437": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=37", 
+      "unit": "Structured_CPDs_Week2"
+   }, 
+   "C47-Clique_Trees_and_Independence_1521": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=56", 
+      "unit": "Inference_Belief_Propagation_Part2_Week4"
+   }, 
+   "C5-Semantics": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=3", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C77-Bayesian_Estimation_for_Bayesian_Networks_1702": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=82", 
+      "unit": "Learning_Parameter_Estimation_in_BNs_Week7"
+   }, 
+   "C49-BP_In_Practice_1538": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=58", 
+      "unit": "Inference_Belief_Propagation_Part2_Week4"
+   }, 
+   "C1-Welcome_0535": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=107", 
+      "unit": "Introduction_and_Overview_Week1"
+   }, 
+   "C86-Learning_General_Graphs_Heuristic_Search_2336": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=98", 
+      "unit": "Structure_Learning_Week8"
+   }, 
+   "C43-Properties_of_Cluster_Graphs_1500": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=50", 
+      "unit": "Inference_Belief_Propagation_Part1_Week3"
+   }, 
+   "C19-Computing_On_Data_1315": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=11", 
+      "unit": "MLclass_Octave_Tutorial_Week1_Optional"
+   }, 
+   "C82-Likelihood_Scores_1649": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=94", 
+      "unit": "Structure_Learning_Week8"
+   }, 
+   "C66-Regularization_The_Problem_of_Overfitting_0942": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=86", 
+      "unit": "MLclass_Revision_Week6_Optional"
+   }, 
+   "C26-Independence_of_Causal_Influence_1308": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=28", 
+      "unit": "Structured_CPDs_Week2"
+   }, 
+   "C3-Distributions_0456": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=1", 
+      "unit": "Introduction_and_Overview_Week1"
+   }, 
+   "C2-Overview_and_Motivation_1917": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=17", 
+      "unit": "Introduction_and_Overview_Week1"
+   }, 
+   "C33-LogLinear_Models_2208": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=30", 
+      "unit": "Markov_Network_Fundamentals_Week2"
+   }, 
+   "C91-EM_in_Practice_1117": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=103", 
+      "unit": "Learning_With_Incomplete_Data_Week9"
+   }, 
+   "C36-Overview_Conditional_Probability_Queries_1522": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=43", 
+      "unit": "Inference_Variable_Elimination_Week3"
+   }, 
+   "C35-Knowledge_Engineering_2305": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=52", 
+      "unit": "Representation_Wrapup_Knowledge_Engineering_Week3"
+   }, 
+   "C76-Bayesian_Prediction_1340": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=81", 
+      "unit": "Learning_Parameter_Estimation_in_BNs_Week7"
+   }, 
+   "C21-Control_Statements_for_while_if_statements_1255": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=13", 
+      "unit": "MLclass_Octave_Tutorial_Week1_Optional"
+   }, 
+   "C57-Markov_Chain_Monte_Carlo_1418": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=72", 
+      "unit": "Inference_Sampling_Methods_Week5"
+   }, 
+   "C74-Maximum_Likelihood_Estimation_for_Bayesian_Networks_1549": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=79", 
+      "unit": "Learning_Parameter_Estimation_in_BNs_Week7"
+   }, 
+   "C52-Finding_a_MAP_Assignment_357": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=60", 
+      "unit": "Inference_MAP_Estimation_Part1_Week4"
+   }, 
+   "C48-Clique_Trees_and_VE_1617": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=57", 
+      "unit": "Inference_Belief_Propagation_Part2_Week4"
+   }, 
+   "C7-Flow_of_Probabilistic_Influence_1436": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=5", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C18-Moving_Data_Around_1607": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=10", 
+      "unit": "MLclass_Octave_Tutorial_Week1_Optional"
+   }, 
+   "C53-Tractable_MAP_Problems_1504": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=68", 
+      "unit": "Inference_MAP_Estimation_Part2_Week5"
+   }, 
+   "C6-Reasoning_Patterns_0959": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=4", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C30-Conditional_Random_Fields_2222": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=33", 
+      "unit": "Markov_Network_Fundamentals_Week2"
+   }, 
+   "C61-Inference_in_Temporal_Models_1943": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=62", 
+      "unit": "Inference_Temporal_Models_and_Wrapup_Week6"
+   }, 
+   "C65-Value_of_Perfect_Information_1714": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=66", 
+      "unit": "Decision_Theory_Week6"
+   }, 
+   "C29-General_Gibbs_Distribution_1552": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=32", 
+      "unit": "Markov_Network_Fundamentals_Week2"
+   }, 
+   "C69-Model_Selection_and_Train_Validation_Test_Sets_1203": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=89", 
+      "unit": "MLclass_Revision_Week6_Optional"
+   }, 
+   "C11-Application_Medical_Diagnosis_0919": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=6", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C13-Overview_of_Template_Models_1055": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=18", 
+      "unit": "Template_Models_Week1"
+   }, 
+   "C8-Conditional_Independence_1238": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=21", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C9-Independencies_in_Bayesian_Networks_1818": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=7", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C78-Maximum_Likelihood_for_LogLinear_Models_2847": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=83", 
+      "unit": "Learning_Parameter_Estimation_in_MNs_Week7"
+   }, 
+   "C72-Learning_Overview_1535": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=67", 
+      "unit": "Learning_Overview_Week6"
+   }, 
+   "C31-Independencies_in_Markov_Networks_0448": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=35", 
+      "unit": "Markov_Network_Fundamentals_Week2"
+   }, 
+   "C94-Class_Summary_2438": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=106", 
+      "unit": "Summary_Week9"
+   }, 
+   "C62-Inference_Summary_1245": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=63", 
+      "unit": "Inference_Temporal_Models_and_Wrapup_Week6"
+   }, 
+   "C88-Learning_With_Incomplete_Data_Overview_2134": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=100", 
+      "unit": "Learning_With_Incomplete_Data_Week9"
+   }, 
+   "C12-Knowledge_Engineering_Example_SAMIAM_1414": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=24", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C68-Evaluating_a_Hypothesis_0735": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=88", 
+      "unit": "MLclass_Revision_Week6_Optional"
+   }, 
+   "C41-Finding_Elimination_Orderings_1158": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=51", 
+      "unit": "Inference_Variable_Elimination_Week3"
+   }, 
+   "C64-Utility_Functions_1815": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=65", 
+      "unit": "Decision_Theory_Week6"
+   }, 
+   "C80-MAP_Estimation_for_MRFs_and_CRFs_959": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=85", 
+      "unit": "Learning_Parameter_Estimation_in_MNs_Week7"
+   }, 
+   "C83-BIC_and_Asymptotic_Consistency_1126": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=95", 
+      "unit": "Structure_Learning_Week8"
+   }, 
+   "C73-Maximum_Likelihood_Estimation_1459": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=78", 
+      "unit": "Learning_Parameter_Estimation_in_BNs_Week7"
+   }, 
+   "C54-Dual_Decomposition_Intuition_1746": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=69", 
+      "unit": "Inference_MAP_Estimation_Part2_Week5"
+   }, 
+   "C22-Vectorization_1348": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=14", 
+      "unit": "MLclass_Octave_Tutorial_Week1_Optional"
+   }, 
+   "C81-Structure_Learning_Overview_549": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=93", 
+      "unit": "Structure_Learning_Week8"
+   }, 
+   "C59-Gibbs_Sampling_1926": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=74", 
+      "unit": "Inference_Sampling_Methods_Week5"
+   }, 
+   "C58-Using_a_Markov_Chain_1527": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=73", 
+      "unit": "Inference_Sampling_Methods_Week5"
+   }, 
+   "C92-Latent_Variables_2200": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=104", 
+      "unit": "Learning_With_Incomplete_Data_Week9"
+   }, 
+   "C40-GraphBased_Perspective_on_Variable_Elimination_1525": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=48", 
+      "unit": "Inference_Variable_Elimination_Week3"
+   }, 
+   "C87-Learning_General_Graphs_Search_and_Decomposability_1546": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=99", 
+      "unit": "Structure_Learning_Week8"
+   }, 
+   "C56-Simple_Sampling_2337": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=71", 
+      "unit": "Inference_Sampling_Methods_Week5"
+   }, 
+   "C10-Naive_Bayes_0952": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=20", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C46-Clique_Tree_Algorithm_Computation_1618": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=55", 
+      "unit": "Inference_Belief_Propagation_Part2_Week4"
+   }, 
+   "C45-Clique_Tree_Algorithm_Correctness_1823": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=54", 
+      "unit": "Inference_Belief_Propagation_Part2_Week4"
+   }, 
+   "C90-Analysis_of_EM_Algorithm_1132": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=102", 
+      "unit": "Learning_With_Incomplete_Data_Week9"
+   }, 
+   "C32-Imaps_and_perfect_maps_2059": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=42", 
+      "unit": "Markov_Network_Fundamentals_Week2"
+   }, 
+   "C79-Maximum_Likelihood_for_Conditional_Random_Fields_1324": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=84", 
+      "unit": "Learning_Parameter_Estimation_in_MNs_Week7"
+   }, 
+   "C89-Expectation_Maximization_Intro_1617": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=101", 
+      "unit": "Learning_With_Incomplete_Data_Week9"
+   }, 
+   "C39-Complexity_of_Variable_Elimination_1248": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=47", 
+      "unit": "Inference_Variable_Elimination_Week3"
+   }, 
+   "C37-Overview_MAP_Inference_0942": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=44", 
+      "unit": "Inference_Variable_Elimination_Week3"
+   }, 
+   "C28-Pairwise_Markov_Networks_1059": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=31", 
+      "unit": "Markov_Network_Fundamentals_Week2"
+   }, 
+   "C60-Metropolis_Hastings_Algorithm_2706": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=75", 
+      "unit": "Inference_Sampling_Methods_Week5"
+   }, 
+   "C15-Temporal_Models_HMMs_1201": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=77", 
+      "unit": "Template_Models_Week1"
+   }, 
+   "C63-Maximum_Expected_Utility_2557": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=64", 
+      "unit": "Decision_Theory_Week6"
+   }, 
+   "C55-Dual_Decomposition_Algorithm_1616": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=70", 
+      "unit": "Inference_MAP_Estimation_Part2_Week5"
+   }, 
+   "C27-Continuous_Variables_1325": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=29", 
+      "unit": "Structured_CPDs_Week2"
+   }, 
+   "C67-Regularization_Cost_Function_1010": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=87", 
+      "unit": "MLclass_Revision_Week6_Optional"
+   }, 
+   "C50-Loopy_BP_and_Message_Decoding_2142": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=59", 
+      "unit": "Inference_Belief_Propagation_Part2_Week4"
+   }, 
+   "C38-Variable_Elimination_Algorithm_1617": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=46", 
+      "unit": "Inference_Variable_Elimination_Week3"
+   }, 
+   "C70-Diagnosing_Bias_vs_Variance_0742": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=90", 
+      "unit": "MLclass_Revision_Week6_Optional"
+   }, 
+   "C23-Working_on_and_Submitting_Programming_Exercises_0333": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=15", 
+      "unit": "MLclass_Octave_Tutorial_Week1_Optional"
+   }, 
+   "C51-Max_Sum_Message_Passing_2027": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=61", 
+      "unit": "Inference_MAP_Estimation_Part1_Week4"
+   }, 
+   "C4-Factors_0640": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=2", 
+      "unit": "Introduction_and_Overview_Week1"
+   }, 
+   "C71-Regularization_and_Bias_Variance_1120": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=91", 
+      "unit": "MLclass_Revision_Week6_Optional"
+   }, 
+   "C14-Temporal_Models_DBNs_2302": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=76", 
+      "unit": "Template_Models_Week1"
+   }, 
+   "C34-Shared_Features_in_LogLinear_Models_0828": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=36", 
+      "unit": "Markov_Network_Fundamentals_Week2"
+   }, 
+   "C93-Summary_Learning_2011": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=105", 
+      "unit": "Learning_Wrapup_Week9"
+   }, 
+   "C85-Learning_Tree_Structured_Networks_1205": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=97", 
+      "unit": "Structure_Learning_Week8"
+   }, 
+   "C20-Plotting_Data_0938": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=12", 
+      "unit": "MLclass_Octave_Tutorial_Week1_Optional"
+   }, 
+   "C84-Bayesian_Scores_2035": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=96", 
+      "unit": "Structure_Learning_Week8"
+   }, 
+   "C17-Basic_Operations_1359": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=9", 
+      "unit": "MLclass_Octave_Tutorial_Week1_Optional"
+   }, 
+   "C16-Plate_Models_2008": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=22", 
+      "unit": "Template_Models_Week1"
+   }, 
+   "C44-Properties_of_Belief_Propagation_931": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=53", 
+      "unit": "Inference_Belief_Propagation_Part2_Week4"
+   }, 
+   "C75-Bayesian_Estimation_1527": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=80", 
+      "unit": "Learning_Parameter_Estimation_in_BNs_Week7"
+   }, 
+   "C5-Factorization_1720": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=3", 
+      "unit": "Bayesian_Network_Fundamentals_Week1"
+   }, 
+   "C24-Overview_Structured_CPDs_0800": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=27", 
+      "unit": "Structured_CPDs_Week2"
+   }, 
+   "C42-Belief_Propagation_2121": {
+      "href": "https://class.coursera.org/pgm/lecture/preview_view?lecture_id=49", 
+      "unit": "Inference_Belief_Propagation_Part1_Week3"
+   }
+}

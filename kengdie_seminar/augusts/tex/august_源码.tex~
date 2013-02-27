@@ -1,0 +1,906 @@
+%\documentclass[handout]{beamer}
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[svgnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{listings} 
+\usepackage{xeCJK}
+% -------language and font set-----
+\setCJKmainfont{WenQuanYi Zen Hei}
+% -------CODE input----------------
+\lstset{                       
+  %% Settings for listings package.
+  % language=[ANSI]{C},
+  language=C++,		
+  backgroundcolor=\color{Lavender},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\color{olive},
+  directivestyle=\color{blue},
+  extendedchars=true,
+  frame=single,%shadowbox
+  framerule=0pt,
+  keywordstyle=\color{blue}\bfseries,
+  morekeywords={*,define,*,include...,enumStateType},
+  numbersep=5pt,
+  % rulesepcolor=\color{red!20!green!20!blue!20},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stepnumber=2,
+  stringstyle=\color{purple},
+  tabsize=4,
+  title=\lstname
+}
+% -----------margin set------------
+\oddsidemargin=0pt
+\textwidth=440pt
+\marginparwidth=0pt
+% --------Length set ------------
+\setlength{\parindent}{0em}
+\setlength{\baselineskip}{1.8em}
+\setlength{\parskip}{1ex}
+% --------beamer style set ---------
+% \usepackage{beamerthemeshadow}
+% \usetheme{Frankfurt}
+% \setbeamercolor{normal text}{bg=yellow!80!green} %background color using xcolor
+% \setbeamertemplate{navigation symbols}{}  %no navigation bar
+% \setbeamertemplate{items}[ball]
+% \hypersetup{colorlinks=true,linkcolor=red}
+
+% -----------------those length are set specially for chinese
+% \usepackage{beamerthemeshadow}
+% \usetheme{Frankfurt}
+% \setbeamercolor{normal text}{bg=yellow!80!green} %background color using xcolor
+% \setbeamertemplate{navigation symbols}{}  %no navigation bar
+% \setbeamertemplate{items}[ball]
+% \hypersetup{colorlinks=true,linkcolor=red}
+\begin{document}
+%% -----------------------------------
+{
+  % only show this pic in the titlepage,include it in the {}.
+  % \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{model.jpg}}
+  \title{开发笔记-源码阅读-参数文件}
+  \author{于秋林}
+  \maketitle
+  \abstract{
+    这一章是augustus2.5的主要参数文件整理。一些重要参数的位置，声明，类型，依赖关系，也包含部分函数的声明，依赖关系。目的是希望在结构水平了解augustus的工作方式，可以从外部做调整，改进预测结果。同时为进一步从代码水平理解augustus做好基础。\\
+    完成这一章可以理解augustus每一个模块如何工作，从序列到注释结果的完整流程。				
+  }				
+}
+\newpage
+\tableofcontents
+\newpage
+
+% ------------需要解决的问题-------------------------
+\section{Question}
+1:GC含量相关参数训练的权值，$200=2*10^2$,把4种组份作为一个向量，然后M是两个组份的协方差阵吗？虽然是4阶但是只有二阶秩，所以对角化之后只有G和C的值。这个规则怎么来的，找到化简前的表达式。
+$$w(\alpha,\beta)=floor(10exp(-200*(\alpha-\beta)^2))$$
+2：
+% --------------------------------------
+\section{用户层面的augustus}
+这一节通过分析主函数$augustus.cc$在用户层面了解augustus的行为。\\
+
+\section{augustus 目录结构}
+├── bin\\
+├── config\\
+│\hspace{20pt}├── extrinsic\\
+│\hspace{20pt}├── model\\
+│\hspace{20pt}├── profile\\
+│\hspace{20pt}└── species\\
+├── docs\\
+│\hspace{20pt}└── tutorial\\
+├── examples\\
+│\hspace{20pt}├── autoAug\\
+│\hspace{20pt}└── profile\\
+├── include\\
+├── scripts\\
+│\hspace{20pt}├── aln2wig\\
+│\hspace{20pt}└── compileSpliceCands\\
+└── src\\
+
+% --------------------------------------
+\section{include \&	src目录}
+\begin{tabular}{llllll}
+  \multicolumn{1}{l}{Tab1.include目录内容}\\[5pt]
+  \hline
+  baumwelch.hh     &exon\_seg.hh       &igenicmodel.hh  &namgene.hh               &properties.hh\\
+  commontrain.hh   &extrinsicinfo.hh  &intronmodel.hh  &pp\_fastBlockSearcher.hh  &statemodel.hh\\
+  consensus.hh     &genbank.hh        &lldouble.hh     &pp\_hitseq.hh             &types.hh\\
+  contentmodel.hh  &gene.hh           &matrix.hh       &pp\_profile.hh            &utrmodel.hh\\
+  evaluation.hh    &geneticcode.hh    &merkmal.hh      &pp\_scoring.hh            &vitmatrix.hh\\
+  exonmodel.hh     &hints.hh          &motif.hh        &projectio.hh\\
+\end{tabular}
+\\[20pt]
+\begin{tabular}{llllll}
+  \multicolumn{1}{l}{Tab2.src目录内容}\\[5pt]
+  \hline
+  augustus.cc	&         evaluate.cc	&         gene.cc	&           merkmal.cc	&               properties.cc	&\\
+  baumwelch.cc	&        evaluation.cc	&       geneticcode.cc	&    motif.cc	&                 statemodel.cc	&\\
+  commontrain.cc	&      exonmodel.cc	&        hints.cc	&          namgene.cc	&               types.cc	&\\
+  consensus.cc	&        exon\_seg.cc	&         igenicmodel.cc	&    pp\_fastBlockSearcher.cc	&  utrmodel.cc	&\\
+  consensusFinder.cc	&  exon\_seg.orig.cc	&    igenictrain.cc	&    pp\_hitseq.cc	&             utrtrain.cc	&\\
+  contentmodel.cc	&     exontrain.cc	&        intronmodel.cc	&    pp\_prepare\_align.cc	&      vitmatrix.cc	&\\
+  curve2hints.cc	&      extrinsicinfo.cc	&    introntrain.cc	&    pp\_profile.cc	&\\
+  dummy.cc	&            fastBlockSearch.cc	&  lldouble.cc	&       pp\_scoring.cc	&\\
+  etraining.cc	&        genbank.cc	&          logdoubletest.cc	&  projectio.cc	&\\
+  \hline
+\end{tabular}
+
+% -----------------------------------
+\subsection{geneticcode.hh}
+这个文件比较简单，介绍碱基，蛋白的编码规则和建立数值映射。这样便于便于程序处理。有两个类$seq2Int$,将序列进行编码的数值，字符转换，求逆，反向互补等，$geneticcode$,四个简单的函数，可以顾名思义。\\
+GeneticCode 类中有四个字符数组。\\
+\begin{itemize}
+\item $aa\_symbols\_with\_stop[NUM\_AA+2]="*GDERKNQSTAVLIFYWHMCP",aa\_symbols=aa\_symbols\_with\_stop+1,NUM\_AA=20,$
+\item $aa\_names[NUM\_AA]={"GLYCINE",.."POLINE"}$
+\item $map[64]={4,5,4,5,8,8,8,8,3,7,3,7...11,13,11,13}$,index 是三联体按照字典序排列的整数序（从零开始），内容作为$aa\_symbols_with\_stop[NUM\_AA+2]$的index，通过这个index可以完成三联体与氨基酸的映射。
+\item $TranslationTables[24]={"",“KNKNTTT..",...}$：少数物种的氨基酸编码规则不同，这个表列举了已知的所以编码规则。可以通过修改配置文件指定已有的规则或构造新的编码规则。在新的编码规则下，终止密码子和起始密码子可能都有变化，需要调整$/constant/prob_***$。
+
+\end{itemize}	
+DSS，ASS的\#define和判断都在这里：\\			
+\begin{lstlisting}
+  #define DECLARE\_ON(NAME,PATTERN,COUTN)
+  inline bool ANME(const char* dna){
+    return strncmp(dna,PATTERN,COUTN)==0;
+  }
+  #define DSS\_SEQUENCE "gt"
+  #define RDSS\_SEQUENCE "ac"
+  #define ALT\_DSS_SEQUENCE ..
+\end{lstlisting}
+下面是该文件的tag信息：\\
+% ----------------					
+geneticcode.hh (/home/asenal/mybin/augustus/include) \\               
+|-\hspace{10pt}{\color{red}{macro}}\hspace{30pt}     \\
+||\hspace{30pt}GENETIC\_CODE\_HH\hspace{10pt}      \\
+||\hspace{30pt}NUM\_AA\hspace{10pt}                 \\
+||\hspace{30pt}DECLARE\_ON\hspace{10pt}             \\
+||\hspace{30pt}DSS\_SEQUENCE\hspace{10pt}           \\
+||\hspace{30pt}RDSS\_SEQUENCE\hspace{10pt}          \\
+||\hspace{30pt}ALT\_DSS\_SEQUENCE\hspace{10pt}       \\
+||\hspace{30pt}ALT\_RDSS\_SEQUENCE\hspace{10pt}      \\
+||\hspace{30pt}ASS\_SEQUENCE\hspace{10pt}           \\
+||\hspace{30pt}RASS\_SEQUENCE\hspace{10pt}          \\
+||\hspace{30pt}STARTCODON\hspace{10pt}             \\
+||\hspace{30pt}RCSTARTCODON\hspace{10pt}           \\
+|\hspace{30pt}\hspace{10pt}                        \\
+|-\hspace{10pt}{\color{red}{class}}\hspace{30pt}   \\
+||\hspace{30pt}Seq2Int\hspace{10pt}                \\
+||\hspace{30pt}GeneticCode\hspace{10pt}            \\
+|\hspace{30pt}\hspace{10pt}                        \\
+|-\hspace{10pt}{\color{red}{function}}\hspace{30pt}    \\
+||\hspace{30pt}onGenDSS\hspace{10pt}               \\
+||\hspace{30pt}onGenRDSS\hspace{10pt}              \\
+||\hspace{30pt}wcComplement\hspace{10pt}           \\
+||\hspace{30pt}putReverseComplement\hspace{10pt}   \\
+||\hspace{30pt}reverseComplement\hspace{10pt}      \\
+||\hspace{30pt}Seq2Int [Seq2Int]\hspace{10pt}      \\
+||\hspace{30pt}operator () [Seq2Int]\hspace{10pt}  \\
+||\hspace{30pt}rc [Seq2Int]\hspace{10pt}           \\
+||\hspace{30pt}rev [Seq2Int]\hspace{10pt}          \\
+||\hspace{30pt}inv [Seq2Int]\hspace{10pt}          \\
+||\hspace{30pt}INV [Seq2Int]\hspace{10pt}          \\
+||\hspace{30pt}read [Seq2Int]\hspace{10pt}         \\
+||\hspace{30pt}base2int [Seq2Int]\hspace{10pt}     \\
+||\hspace{30pt}int2base [Seq2Int]\hspace{10pt}     \\
+||\hspace{30pt}int2BASE [Seq2Int]\hspace{10pt}     \\
+||\hspace{30pt}init [GeneticCode]\hspace{10pt}     \\
+||\hspace{30pt}GeneticCode [GeneticCode] \\
+||\hspace{30pt}get\_aa\_from\_symbol [GeneticCode]\hspace{10pt}  \\
+||\hspace{30pt}translate [GeneticCode]\hspace{10pt}\\
+||\hspace{30pt}isStopcodon [GeneticCode] \\
+||\hspace{30pt}isRCStopcodon [GeneticCode]\\
+% -------------------		
+\subsection{状态类型定义:types.hh}
+这里定义了HMM的74个状态的名字，字符数值映射关系,types.hh 声明了一个类Constant,主要是全局默认参数，types.cc 对constant类中的一些变量初始化，这些默认值可以被后期指定的参数文件中的值覆盖。
+以下是一些\#define（本来应该出现在geneticcode中):\\
+\begin{lstlisting}
+  #define ASS_MIDDLE      2
+  #define DSS_MIDDLE      2
+  #define STARTCODON_LEN  3
+  #define STOPCODON_LEN   3
+  #define OCHRECODON      "taa"
+  #define OPALCODON       "tga"
+  #define AMBERCODON      "tag"
+  #define TRUNC_LEFT      1
+  #define TRUNC_RIGHT     2 
+
+\end{lstlisting}
+以下用枚举类型定义了所有子模型的状态名共74个，这些名字通过chr\*stateTypeNames\[NUM\_TYPES\];chr\*stateTypeIdentifiers\[NUM\_TYPES\];int stateReadingFrames\[NUM\_TYPES\]实现字符与整型键值映射。\\
+\begin{lstlisting}
+  enumStateType{TYPE_UNKNOWN = -1, igenic, 
+    // forward strand
+    singleG, initial0, initial1, initial2, 
+    internal0, internal1, internal2, terminal,
+    lessD0, longdss0, equalD0, geometric0, longass0, // The five intron states for frame 0
+    lessD1, longdss1, equalD1, geometric1, longass1, // The five intron states for frame 1
+    lessD2, longdss2, equalD2, geometric2, longass2,  // The five intron states for frame 2
+    utr5single, utr5init, utr5intron, utr5intronvar, utr5internal, utr5term, // 5'UTR states
+    utr3single, utr3init, utr3intron, utr3intronvar, utr3internal, utr3term, // 3'UTR states
+    // reverse strand
+    rsingleG, rinitial, rinternal0, rinternal1, rinternal2, rterminal0, rterminal1, rterminal2,
+    rlessD0, rlongdss0, requalD0, rgeometric0, rlongass0, // The five intron states for frame 0
+    rlessD1, rlongdss1, requalD1, rgeometric1, rlongass1,  // The five intron states for frame 1
+    rlessD2, rlongdss2, requalD2, rgeometric2, rlongass2, // The five intron states for frame 2
+    rutr5single, rutr5init, rutr5intron, rutr5intronvar, rutr5internal, rutr5term,
+    // 5'UTR states
+    rutr3single, rutr3init, rutr3intron, rutr3intronvar, rutr3internal, rutr3term,
+    // 3'UTR states
+    intron_type, rintron_type, exon_type
+  };
+\end{lstlisting}
+
+同时types.hh声明了类Constant：\\
+
+\begin{lstlisting}
+  classConstant {
+    public:
+    static void init();
+    static string fullSpeciesPath() {return configPath + speciesDir;}
+    static string modelPath() {return configPath + MODEL_SUBDIR;}
+    static string extrinsicPath() {return configPath + EXTRINSIC_SUBDIR;}
+
+    // size of splicesite patterns
+    static int ass_size() { return ass_start + ass_end; }           // excluding "AG"
+    static int ass_whole_size() { return ass_size() + ASS_MIDDLE; } // including "AG"
+    static int dss_size() { return dss_start + dss_end; }           // excluding "GT"
+    static int dss_whole_size() { return dss_size() + DSS_MIDDLE; } // including "GT"
+
+    static string configPath; static string speciesDir;
+    static int decomp_num_at; static int decomp_num_gc;
+    static int decomp_num_steps;
+    static int trans_init_window;
+    static int tis_maxbinsize;
+    static int ass_upwindow_size;
+    static int init_coding_len;
+    static int et_coding_len;
+    static int ass_start;    //  size of ASS pattern before "AG" 
+    static int ass_end;      //                      after  "AG"
+    static int dss_start;    //  size of DSS pattern before "GT" 
+    static int dss_end;      //                      after  "GT"
+    static int dss_maxbinsize;
+    static int ass_maxbinsize;
+    static int tss_upwindow_size;   // win from start of model up to tss
+    static int tss_start;
+    static int min_coding_len;
+    static Integer d_polyasig_cleavage;
+    static bool keep_viterbi;
+    static double gc_range_min;
+    static double gc_range_max;
+    static double probNinCoding;
+    static double opalprob;
+    static double amberprob;
+    static double ochreprob;
+    static bool utr_option_on;
+    static Integer augustus_verbosity;
+    static bool alternatives_from_evidence;
+    static double subopt_transcript_threshold;
+    static Integer almost_identical_maxdiff;  // maximum allowed difference for the ends of the transcript
+    static bool uniqueGeneId;
+    static double max_contra_supp_ratio;
+    static bool reportUtrOnlyGenes;
+    static bool useCRFtraining;
+    static bool CRFtrainTIS;
+    static bool CRFtrainSS;
+    static bool CRFtrainIntron;
+    static bool CRFtrainIgenic;
+    static bool CRFtrainCDS;
+    static bool CRFtrainUTR;
+    static bool dss_gc_allowed;
+    static Boolean tieIgenicIntron; // whether to tie igenic model parameters to intron model parameters, i.e. use just one content model, that of the intron
+  };
+\end{lstlisting}
+types.cc定义（初始化)了：
+\begin{itemize}
+\item $stateTypeNames[NUM\_TYPES]$
+\item $statTypeIdentifiers[NUM\_TYPES]$
+\item $stateReadingFrames[NUM\_TYPES]$
+\item $class Constant$
+\end{itemize}	
+\begin{lstlisting}
+  //---------------------------------------
+  //-------------this is from type.cc------
+  // declaration of "global" variables
+  //---------------------------------------
+  const char* stateTypeNames[NUM_TYPES]= 
+  {"intergenicregion", 
+    "single exon", 
+    "initial exon 0", "initial exon 1", "initial exon 2", 
+    "internal exon 0", "internal exon 1", "internal exon 2", 
+    "terminal exon",
+    "intron lessD0", "intron dss 0", "intron equalD0", "intron geometric 0", "intron ass 0",
+    "intron lessD1", "intron dss 1", "intron equalD1", "intron geometric 1", "intron ass 1",
+    "intron lessD2", "intron dss 2", "intron equalD2", "intron geometric 2", "intron ass 2",
+    "5'UTR single exon", "5'UTR initial exon", "5'UTR intron", "5'UTR intron var", "5'UTR internal exon", "5'UTR terminal exon",
+    "3'UTR single exon", "3'UTR initial exon", "3'UTR intron", "3'UTR intron var", "3'UTR internal exon", "3'UTR terminal exon",
+    "reverse single exon", 
+    "reverse initial exon", 
+    "reverse internal exon 0", "reverse internal exon 1", "reverse internal exon 2", 
+    "reverse terminal exon 0","reverse terminal exon 1","reverse terminal exon 2",
+    "reverse intron lessD0", "reverse long intron dss 0", "reverse intron equalD0", 
+    "reverse intron geometric 0", "reverse long intron ass 0",
+    "reverse intron lessD1", "reverse long intron dss 1", "reverse intron equalD1", 
+    "reverse intron geometric 1", "reverse long intron ass 1",
+    "reverse intron lessD2", "reverse long intron dss 2", "reverse intron equalD2", 
+    "reverse intron geometric 2", "reverse long intron ass 2",
+    "reverse 5'UTR single exon", "reverse 5'UTR initial exon", "reverse 5'UTR intron", "reverse 5'UTR intron var", "reverse 5'UTR internal exon", "reverse 5'UTR terminal exon", 
+    "reverse 3'UTR single exon", "reverse 3'UTR initial exon", "reverse 3'UTR intron", "reverse 3'UTR intron var", "reverse 3'UTR internal exon", "reverse 3'UTR terminal exon", 
+    "intron", "reverse intron", "exon"};
+  //-----------------------------------------
+  constchar* stateTypeIdentifiers[NUM_TYPES]= 
+  {"igenic",
+    "single", "initial0", "initial1", "initial2", "internal0", "internal1", "internal2", "terminal",
+    "lessD0", "longdss0", "equalD0", "geometric0", "longass0",
+    "lessD1", "longdss1", "equalD1", "geometric1", "longass1",
+    "lessD2", "longdss2", "equalD2", "geometric2", "longass2",
+    "utr5single", "utr5init", "utr5intron", "utr5intronvar", "utr5internal", "utr5term",
+    "utr3single", "utr3init", "utr3intron", "utr3intronvar", "utr3internal", "utr3term",
+    "rsingle", "rinitial", "rinternal0", "rinternal1", "rinternal2", "rterminal0", "rterminal1", "rterminal2",
+    "rlessD0", "rlongdss0", "requalD0", "rgeometric0", "rlongass0",
+    "rlessD1", "rlongdss1", "requalD1", "rgeometric1", "rlongass1",
+    "rlessD2", "rlongdss2", "requalD2", "rgeometric2", "rlongass2",
+    "rutr5single", "rutr5init", "rutr5intron", "rutr5intronvar", "rutr5internal", "rutr5term",
+    "rutr3single", "rutr3init", "rutr3intron", "rutr3intronvar", "rutr3internal", "rutr3term",
+    "intron", "rintron", "exon"};
+  //-----------------------------------------
+  //don't forget to change shift the reading frames, when you introduce new states!!
+  constint stateReadingFrames[NUM_TYPES]=
+  {0,// intergenic region
+    0,0,1,2,0,1,2,0,          // forward exons
+    0,0,0,0,0,                // --  
+    1,1,1,1,1,                //   |- forward introns
+    2,2,2,2,2,                // -- 
+    0,0,0,0,0,0,0,0,0,0,0,0,  // forward utr
+    2,2,0,1,2,0,1,2,          // reverse exons
+    0,0,0,0,0,                // --
+    1,1,1,1,1,                //   |- reverse introns
+    2,2,2,2,2,                // --
+    0,0,0,0,0,0,0,0,0,0,0,0,  // reverse utr
+    0,0,0}; 
+  //----------------------------------------
+  string Constant::configPath;
+  string Constant::speciesDir;
+  int Constant::trans_init_window = 12; 
+  int Constant::ass_upwindow_size = 20; 
+  int Constant::init_coding_len = 16; 
+  int Constant::et_coding_len = 5;
+  int Constant::ass_start = 2;
+  int Constant::ass_end = 2;
+  int Constant::dss_start = 2;
+  int Constant::dss_end = 5;
+  int Constant::dss_maxbinsize = 0;
+  int Constant::ass_maxbinsize = 0;
+  int Constant::tis_maxbinsize = 0;
+  int Constant::tss_upwindow_size = 0;
+  int Constant::tss_start = 5;
+  int Constant::decomp_num_at = 1;
+  int Constant::decomp_num_gc = 1;
+  int Constant::decomp_num_steps = 1;
+  int Constant::min_coding_len = 102;
+  Integer Constant::d_polyasig_cleavage = 20; 
+  bool Constant::keep_viterbi = false;
+  double Constant::gc_range_min = 0.32;
+  double Constant::gc_range_max = 0.73;
+  double Constant::probNinCoding = 0.23;
+  double Constant::opalprob = 0.333;  // default value, was 0.24
+  double Constant::amberprob = 0.333; // default value, was 0.48
+  double Constant::ochreprob = 0.333; // default value, was 0.28
+  bool Constant::utr_option_on = false;
+  Integer Constant::augustus_verbosity = 1;
+  bool Constant::alternatives_from_evidence = true;
+  double Constant::subopt_transcript_threshold = 0.94;
+  Integer Constant::almost_identical_maxdiff = 10; 
+  bool Constant::uniqueGeneId = false;
+  // class GeneticCode is taking care of these now
+  // bool OpenReadingFrame::ochre = true;
+  // bool OpenReadingFrame::opal = true;
+  // bool OpenReadingFrame::amber = true;
+  double Constant::max_contra_supp_ratio = 9.0;
+  bool Constant::reportUtrOnlyGenes = false;
+  bool Constant::useCRFtraining = false;
+  bool Constant::CRFtrainCDS = true;
+  bool Constant::CRFtrainIgenic = true;
+  bool Constant::CRFtrainIntron = true;
+  bool Constant::CRFtrainSS = true;
+  bool Constant::CRFtrainTIS = true;
+  bool Constant::CRFtrainUTR = false;
+  bool Constant::dss_gc_allowed = false;
+  Boolean Constant::tieIgenicIntron = true;
+
+  bool inCRFTraining = false;
+\end{lstlisting}
+augustus的参数种类多而且数量多，各等级参数的交互方式复杂。接下来要结合主程序（augustus.cc）逐个理清楚所有参数。单独建一个文件说这个。
+% ---------------物种特异参数-------------------
+\section{物种特异参数}
+augustus have parameters specified for species.Those parameters can be categorised into 2 class:meta parameters and state-associated parameters,the latter can be further categorised by states.\\
+\begin{itemize}
+\item meta parameters:
+  \begin{itemize}
+  \item X\_weightmatrix.txt
+  \item X\_parameters.cfg
+  \end{itemize}	
+\item state-associated parameters:
+  \begin{itemize}
+  \item X\_igenetic\_probs.pbl
+  \item X\_exon\_probs.pbl
+  \item X\_intron\_probs.pbl
+  \item X\_TUR\_probs.pbl 
+  \end{itemize}	
+\item 
+\end{itemize}	
+Now we anylise the parameters one by one.\\
+\subsection{X\_weightmatrix.txt}
+Some of AUGUSTUS parameters strongly depend on GC-content thus AUGUSTUS has a GC-content weighted strategy for parameters training.The general idea of GC-contene weighted training has 3steps.\\
+\begin{itemize}
+\item generate 10 subset from entire training set. 
+\item train every subset desperately using all sequences.
+  \begin{itemize}
+  \item $\alpha$ is the average GC content for current subset
+  \item $\beta$ is the GC content for a sequence,a sequence can be from any subset
+  \item a sequence can be trained(sampled) w times
+  \item $w(\alpha,\beta)=floor(10exp(-200*(\alpha-\beta)^2))$
+  \end{itemize}	
+\item 
+\end{itemize}	
+% ---------------基因间区---------------------	
+\subsection{X\_igenetic\_probs.pbl}
+基因间区参数比较简单，都是与GC content相关的,主要分为两部分：
+\begin{itemize}
+\item 多联体经验分布
+\item 四阶马尔科夫转移概率\(1024X1的向量\)
+\end{itemize}	
+\begin{lstlisting}
+  [1]
+  #第一项是单碱基碱基组成
+  # (a,c,g,t)= (0.29, 0.21, 0.21, 0.29)
+  #第二项是多联体组成
+  # Probabilities file for the intergenic region model
+  # k = 4 最长多联体的长度（从零开始）
+  # The P_l's
+  [P_ls]
+  # l=0
+  # Values
+  A   0.283
+  C   0.217
+  G   0.217
+  T   0.283
+  # l=1
+  # Values
+  AA  0.0916
+  AC  0.0506
+  AG  0.0717
+  AT  0.0693
+  CA  0.0728
+  CC  0.0586
+  CG  0.0137
+  CT  0.0717
+  GA  0.0596
+  GC  0.048
+  GG  0.0586
+  GT  0.0506
+  TA  0.0592
+  TC  0.0596
+  TG  0.0728
+  TT  0.0916
+  ……
+
+  TTTGT   0.00223
+  TTTTA   0.00303
+  TTTTC   0.00243
+  TTTTG   0.00256
+  TTTTT   0.00707
+  ……
+  [EMISSION]
+  # Vector size (4^(k+1))= 1024
+  # Probabilities
+  # 这里四个一组，和为1.
+  AAAAA   0.3976
+  AAAAC   0.1709
+  AAAAG   0.1564
+  AAAAT   0.2752
+  AAACA   0.389
+  AAACC   0.1645
+  AAACG   0.1778
+  ……
+  # EOF
+\end{lstlisting}
+% ------------------外显子参数文件-----------
+\subsection{X\_exon\_probs.pbl}
+外显子参数文件包含GC content相关参数和GC content无关参数。前者和基因间去参数文件基本相同。
+\begin{itemize}
+\item GC content independant
+  \begin{itemize}
+  \item 外显子长度经验分布，4类：single,initial,internal,terminal,这是3000X4的矩阵。
+  \item 长度经验分布不能直接使用，augustus使用高斯核函数做平滑，包含一些与核函数有关的参数。
+  \end{itemize}	
+\item GC content associated:
+  \begin{itemize}
+  \item 多联体经验分布，最长4阶，这里是三列，按相位统计，每次移动1位or3位，验证？
+  \end{itemize}	
+\end{itemize}	
+\begin{lstlisting}
+  # 外显子长度经验分布，核函数相关参数略
+  # 以下是GC content 相关参数：
+  # 短模式，这个应该是对外显子区滑动得到的，每次移动一位。
+  # l= 0
+  ……
+  # l= 4
+  # Values ：1024X3的矩阵
+  aaaaa   0.000864         0.00186         0.0011
+  aaaac   0.000865         0.00107         0.00134
+  ……
+  # 终止密码子：taa，在这个文件中是等概率出现,实际上频数是0，这个接近零的浮点数和
+  自身样本数有关，总之当它是零好了。
+  ctaaa   8.2e-07      0.000917        0.00114
+  ctaac   8.2e-07      0.000396        0.000559
+  ctaag   8.2e-07      0.000404        0.000927
+  ctaat   8.2e-07      0.000428        0.00078
+
+
+  # normal patterns  #这个果蝇有，人类参数文件中没有，应该和上一项是一一对应，未查证。
+  aaaaa   33544        75836       42808
+  aaaac   33602        43703       52328
+  aaaag   31077        29332       100423
+  aaaat   24905        57579       48663
+  aaaca   47295        44772       29913
+  aaacc   24258        37464       39879
+  aaacg   40350        31421       42744
+  aaact   30462        53585       27945
+  ……
+  # initial patterns #人类没有
+  aaaaa   531      661         448
+  aaaac   262      688         560
+  aaaag   289      306         645
+  aaaat   353      877         376
+  aaaca   358      282         384
+  aaacc   252      248         290
+  ……
+  # internal exon terminal patterns #人类没有
+  aaaaa   0        0       0
+  aaaac   0        0       0
+  aaaag   0        0       0
+  aaaat   0        0       0
+
+  ……
+  这是个零矩阵，应该是没有统计完全？？？或者是放弃的数据，只用了normal,initial？？
+
+  #=========================================================
+  # 以下参数是外显子独有的：
+  # translation initiation motif [TRANSINIT]
+  # width of motif, n= 22
+  # order of markov model, k= 3
+  # markov chain emission probabilities
+  # 这是22X256发射矩阵，行和64，4个一组。
+  0.446   0.235   0.168   0.151   0.263   0.281   0.172   0.284   0.42...
+  0.246   0.306   0.265   0.183   0.241   0.27    0.285   0.204   0.296...
+  0.394   0.209   0.396   0.000539    0.226   0.26    0.297   0.217...
+  0.419   0.213   0.176   0.192   0.284   0.247   0.169   0.301   0.394...
+  0.285   0.321   0.218   0.175   0.233   0.291   0.232   0.243   0.363...
+  # dss upstream motif, reading frame 0(reverse) [ETMOTIF0]
+  # width of motif, n= 5
+  # order of markov model, k= 2
+  # markov chain emission probabilities
+  # 这是5X64发射矩阵，行和16，4个一组。
+
+  # dss upstream motif, reading frame 1(reverse) [ETMOTIF1]
+  # width of motif, n= 5
+  # order of markov model, k= 2
+  # markov chain emission probabilities
+  # 这是5X64发射矩阵，行和16，4个一组。
+
+  # dss upstream motif, reading frame 1(reverse) [ETMOTIF2]
+  # width of motif, n= 5
+  # order of markov model, k= 2
+  # markov chain emission probabilities
+  # 这是5X64发射矩阵，行和16，4个一组。
+  #========================================================
+  # Emission probabilities
+  # [EMISSION]
+  # Size of vector 1024
+  # k : order of the markov model 4
+  # patpseudocount (pseudocount of sequence patterns) 5
+  # Probabilities
+  # Format:4个一组，这个和基因间区格式相同，三个相位。
+  pattern win0 win1 win2
+  aaaaa   0.2483  0.3617  0.2849
+  aaaac   0.2315  0.1896  0.1684
+  aaaag   0.3241  0.1853  0.2786
+  ……
+  atgaa   0.25    0.3879  0.3279
+  atgac   0.25    0.183   0.1869
+  atgag   0.25    0.1863  0.2474
+  atgat   0.25    0.2354  0.2
+  # 这里和基因间区不同，一个是0.25一个是0.
+  ……
+  ctgaa   0.25    0.3475  0.2945
+  ctgac   0.25    0.2049  0.1819
+  ctgag   0.25    0.2344  0.3135
+  ctgat   0.25    0.1753  0.2146
+  ……
+  gtaaa   0.25    0.4215  0.3488
+  gtaac   0.25    0.2158  0.1874
+  gtaag   0.25    0.1458  0.234
+  gtaat   0.25    0.2268  0.2365
+  ……
+  # Initial emission probabilities
+  #
+  [INITEMISSION]
+  # Size of vector 1024
+  # k : order of the markov model 4
+  # patpseudocount (pseudocount of sequence patterns) 5
+  # Probabilities
+  # Format: pattern win0 win1 win2
+  aaaaa       0.269       0.375       0.349
+  aaaac       0.304       0.169       0.194
+  aaaag       0.225       0.216       0.204
+  aaaat       0.203       0.24        0.253
+  ……
+
+  # Internal exon terminal emission probabilities
+  #
+  [ETEMISSION]
+  # Size of vector 1024
+  # k : order of the markov model 4
+  # patpseudocount (pseudocount of sequence patterns) 5
+  # Probabilitise
+  # Format: pattern win0 win1 win2
+  aaaaa       0.298       0.327       0.31
+  aaaac       0.211       0.238       0.182
+  aaaag       0.29        0.145       0.203
+  aaaat       0.201       0.291       0.305
+  ……
+
+\end{lstlisting}
+\subsubsection{相位处理}
+外显子参数文件列出的外显子长度分布是经验分布，在计算过程中不能直接使用。外显子实际长度和外显子状态
+发射长度有一个简单的对应关系：
+\begin{itemize}
+\item 外显子实际长度$l$
+\item 状态发射长度$r$
+\item coding bases emitting from splice site state or non-coding bases from
+  exon state at reanslation start point:$yy$
+\item $l=r+yy$
+\end{itemize}
+同时要考虑相位因素：
+\begin{itemize}
+\item let $q$ be ont of $\{E_{single},E^{0}_{init},E^{1}_{init},E^{2}_{init},E^0,E^1,E^2,E_{term}\}$
+\item precedent state frame:$f_1$,if previous state is IR,set $f_1$ to 0
+\item current state frame:$f_2$,if $q==E_{single} || E_{term}$ then $f_2=0$ ,
+  这两条在图中有对应。
+\item let $ pie_{i,i in Z}$be the estiamted length distribution of the exon
+  type corresponding to $q$
+\item 长公式编辑
+\end{itemize}
+
+% -----------------------------------------------	
+\subsection{gene.hh}
+这个文件定义了基因的结构，只是分配数据结构，不是预测模块。
+-gene.hh (/home/asenal/mybin/augustus/include/gene.hh)\\
+|-\hspace{10pt}{\color{red}{macro}}\\
+||\hspace{30pt}\_GENE\_HH\\
+|  \\
+|-\hspace{10pt}{\color{red}{class}}\\
+||\hspace{30pt}SrcEvidence\\
+||\hspace{30pt}Evidence\\
+||\hspace{30pt}State\\
+||\hspace{30pt}StatePath\\
+||\hspace{30pt}Gene\\
+||\hspace{30pt}AltGene\\
+||\hspace{30pt}Annotation\\
+||\hspace{30pt}AnnoSequence\\
+||\hspace{30pt}AnnoSeqGeneIterator\\
+||\hspace{30pt}CompareStatePathPtr\\
+||\hspace{30pt}StatePathCollection\\
+||\hspace{30pt}FreqSegment\\
+|  \\
+|-\hspace{10pt}{\color{red}{function}}\\
+||\hspace{30pt}SrcEvidence [SrcEvidence]\\
+||\hspace{30pt}Evidence [Evidence]\\
+||\hspace{30pt}\~{}Evidence [Evidence]\\
+||\hspace{30pt}State [State]\\
+||\hspace{30pt}State [State]\\
+||\hspace{30pt}\~{}State [State]\\
+||\hspace{30pt}cloneStateSequence [State]\\
+||\hspace{30pt}State [State]\\
+||\hspace{30pt}addEvidence [State]\\
+||\hspace{30pt}length [State]\\
+||\hspace{30pt}StatePath [StatePath]\\
+||\hspace{30pt}\~{}StatePath [StatePath]\\
+||\hspace{30pt}push [StatePath]\\
+||\hspace{30pt}size [StatePath]\\
+||\hspace{30pt}Gene [Gene]\\
+||\hspace{30pt}cloneGeneSequence [Gene]\\
+||\hspace{30pt}\~{}Gene [Gene]\\
+||\hspace{30pt}geneBegin [Gene]\\
+||\hspace{30pt}geneEnd [Gene]\\
+||\hspace{30pt}destroyGeneSequence [Gene]\\
+||\hspace{30pt}AltGene [AltGene]\\
+||\hspace{30pt}Annotation [Annotation]\\
+||\hspace{30pt}\~{}Annotation [Annotation]\\
+||\hspace{30pt}AnnoSequence [AnnoSequence]\\
+||\hspace{30pt}\~{}AnnoSequence [AnnoSequence]\\
+||\hspace{30pt}deleteSequence [AnnoSequence]\\
+||\hspace{30pt}setWeight [AnnoSequence]\\
+||\hspace{30pt}AnnoSeqGeneIterator [AnnoSeqGeneIterator]\\
+||\hspace{30pt}hasMoreElements [AnnoSeqGeneIterator]\\
+||\hspace{30pt}CompareStatePathPtr [CompareStatePathPtr]\\
+||\hspace{30pt}\~{}CompareStatePathPtr [CompareStatePathPtr]\\
+||\hspace{30pt}operator () [CompareStatePathPtr]\\
+||\hspace{30pt}StatePathCollection [StatePathCollection]\\
+||\hspace{30pt}\~{}StatePathCollection [StatePathCollection]\\
+||\hspace{30pt}addPath [StatePathCollection]\\
+||\hspace{30pt}size [StatePathCollection]\\
+||\hspace{30pt}sort [StatePathCollection]\\
+||\hspace{30pt}printAPosterioriProbs [StatePathCollection]\\
+||\hspace{30pt}FreqSegment [FreqSegment]\\
+
+gene()函数:\\
+\begin{lstlisting}
+  class Gene {
+    public:
+    Gene() {
+      exons    = introns = utr5exons = utr3exons 
+      = utr5introns = utr3introns = (State*) 0;
+      length   = clength = 0;
+      seqname  = id = source = "";
+      next     = (Gene*) 0;
+      weight   = 1;
+      complete = true;
+      strand   = plusstrand;
+      frame    = 0;
+      transstart = transend = -1;
+      complete5utr = complete3utr = true;
+      apostprob = 0.0;
+      hasProbs = false;
+      throwaway = false;
+      viterbi = true;
+      codingstart = codingend = -1;
+      supportingEvidence = incompatibleEvidence = CDSexonEvidence
+      =CDSintronEvidence = UTR5stateEvidence
+      =UTR3stateEvidence = NULL;
+    }
+    Gene(const Gene& other);
+
+    Gene *cloneGeneSequence(){
+      Gene *erg = new Gene(*this);
+      if (next)
+      erg->next = next->cloneGeneSequence();
+      else
+      erg->next = NULL;
+      return erg;
+    }
+
+    ~Gene(){
+      State* st, *tmp;
+      State* states[6];
+      states[0] = exons;
+      states[1] = introns;
+      states[2] = utr5exons;
+      states[3] = utr3exons;
+      states[4] = utr5introns;
+      states[5] = utr3introns;
+      for (int i=0; i<6; i++) {
+        st = states[i];
+        while( st ){
+          tmp = st->next;
+          delete st;
+          st = tmp;
+        }
+      }
+
+      if (supportingEvidence) delete supportingEvidence;
+      if (incompatibleEvidence) delete incompatibleEvidence;
+      if (CDSintronEvidence) delete CDSintronEvidence;
+      if (CDSexonEvidence) delete CDSexonEvidence;
+      if (UTR5stateEvidence) delete UTR5stateEvidence;
+      if (UTR3stateEvidence) delete UTR3stateEvidence;
+    }
+  }	
+\end{lstlisting}
+% -----------------------------------------
+\subsubsection{Annotation()函数}
+\begin{lstlisting}
+  class Annotation {
+    public:
+    Annotation() {
+      genes = lastGene = (Gene*) 0;
+      forwardGenes =  backwardGenes  = lastForwardGene = lastBackwardGene 
+      = (Gene*) 0;
+      forwardPath = condensedForwardPath = backwardPath = condensedBackwardPath 
+      = (StatePath*) 0;
+      path = condensedPath = (StatePath*) 0;
+      emiProb = 1.0;
+      forwardEmiProb = 1.0;
+      backwardEmiProb = 1.0;
+    }
+    ~Annotation() {
+      Gene::destroyGeneSequence(genes);
+      if (path)
+      delete path;
+      if (condensedPath)
+      delete condensedPath;
+
+      Gene::destroyGeneSequence(forwardGenes);
+      Gene::destroyGeneSequence(backwardGenes);
+      if (forwardPath) delete forwardPath;
+      if (backwardPath) delete backwardPath;
+      if (condensedForwardPath) delete condensedForwardPath;
+      if (condensedBackwardPath) delete condensedBackwardPath;
+    }
+
+    void appendGene(Gene* gene);
+    void appendForwardGene(Gene* gene);
+    void appendBackwardGene(Gene* gene);
+    void printGFF();
+
+    StatePath *path;
+    StatePath *condensedPath;
+
+    StatePath *forwardPath;
+    StatePath *backwardPath;
+    StatePath *condensedForwardPath;
+    StatePath *condensedBackwardPath;
+
+    Gene *genes;
+    Gene *forwardGenes;
+    Gene *backwardGenes;
+
+    Double emiProb;
+    Double forwardEmiProb;
+    Double backwardEmiProb;
+
+    private:
+    Gene *lastGene;
+    Gene *lastForwardGene, *lastBackwardGene;
+  };
+\end{lstlisting}
+
+
+
+% ---------------------这一章介绍用hint预测基因-----------
+\section{利用外部证据预测基因}
+\begin{itemize}
+\item AUGUSTUS can follow a hint,i.e.,predict a gene structure that is compatible with it \\
+\item AUGUSTUS can ignore a hint,i.e.,predict a gene structure that is not compatible with it\\
+\item The probability that AUGUSTUS ignores a hint is the smaller the  more reliable the hints of this type are.（网页说明书）\\
+\end{itemize}
+augustus使用外部hints的参数是：--extrinsicCfgFile=filename,来自不同source的hint有不同reliability等级，可以对符合该hint的序列产生不同程度的支持，是影响分数的一个因素（reliability等级不仅仅是影响打分，而且这种影响也不是绝对的），罚分标准都会不同，具体规则在augutus/config/species/extrinisic/*.cfg中指定。\\
+这是一个hints.gff的例子，第一列是序列名字，第二列是产生hint的程序，第三列是hint类型，第九列是证据来源，不同来源的证据有不同的reliability。\\[10pt]
+\begin{tabular}{llllllllll}
+  \multicolumn{7}{l}{Tab2./home/asenal/mybin/augustus/examples/hints.gff}\\[5pt]
+  \hline
+  HS04636&mario&exonpart&500&506&.&$-$&.&&source=M\\
+  HS04636&mario&exon&966&1017&.&$+$&0&&source=P\\
+  HS04636&AGRIPPA&start&966&968&6.3e-239&+&0&gb$|$AAA35803.1&source=P\\
+  HS04636&AGRIPPA&dss&2199&2199&$1.3e-216$&$+$&.&gb$|$AAA35803.1&$source=E$\\
+  HS04636&mario&stop&7631&7633&.&$+$&0&&source=M\\
+  HS08198&AGRIPPA&intronpart&2000&2000&0&$+$&.&ref$|$NP\_000597.1&$source=M$\\
+  HS08198&AGRIPPA&ass&757&757&1.4e-52&$+$&.&ref$|$NP\_000597.1&$source=E$\\
+  HS08198&AGRIPPA&tts&2000&2000&$1.4e-52$&+&.&ref$|$NP\_000597.1&$source=M$\\
+  \hline
+\end{tabular}
+\\[18pt]
+
+目前augustus支持以下hint类型：\\
+source of extrinsic information:
+\begin{itemize}
+\item M manual anchor (required)
+\item P protein database hit
+\item E EST/cDNA database hit
+\item C combined est/protein database hit
+\item D Dialign
+\item R retroposed genes
+\item T transMapped refSeqs
+\item W wiggle track coverage info from RNA-Seq
+\end{itemize}
+
+\begin{itemize}
+\item tet
+\item hi
+\end{itemize}
+
+不同类型证据使用时对分数影响不同，由配置文件确定：augutus/config/extrinisic/*.cfg\\
+这里不小心删掉了，用备份恢复一下。
+\end{document} 

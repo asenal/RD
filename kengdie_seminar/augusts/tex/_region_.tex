@@ -1,0 +1,108 @@
+\message{ !name(august_源码.tex)}%\documentclass[handout]{beamer}
+\documentclass{article} \usepackage{amsmath}
+\usepackage[svgnames]{xcolor} \usepackage{graphicx}
+\usepackage{listings} \usepackage{xeCJK}
+% -------language and font set-----
+\setCJKmainfont{WenQuanYi Zen Hei}
+% -------CODE input----------------
+\lstset{
+  %% Settings for listings package.
+  % language=[ANSI]{C},
+  language=C++, backgroundcolor=\color{Lavender},
+  basicstyle=\footnotesize, breakatwhitespace=false, breaklines=true,
+  captionpos=b, commentstyle=\color{olive},
+  directivestyle=\color{blue}, extendedchars=true,
+  frame=single,%shadowbox
+  framerule=0pt, keywordstyle=\color{blue}\bfseries,
+  morekeywords={*,define,*,include...,enumStateType}, numbersep=5pt,
+  % rulesepcolor=\color{red!20!green!20!blue!20},
+  showspaces=false, showstringspaces=false, showtabs=false,
+  stepnumber=2, stringstyle=\color{purple}, tabsize=4, title=\lstname
+}
+% -----------margin set------------
+\oddsidemargin=0pt \textwidth=440pt \marginparwidth=0pt
+% --------Length set ------------
+\setlength{\parindent}{0em} \setlength{\baselineskip}{1.8em}
+\setlength{\parskip}{1ex}
+% --------beamer style set --------- \usepackage{beamerthemeshadow}
+% \usetheme{Frankfurt} \setbeamercolor{normal
+% text}{bg=yellow!80!green} %background color using xcolor
+% \setbeamertemplate{navigation symbols}{} %no navigation bar
+% \setbeamertemplate{items}[ball]
+% \hypersetup{colorlinks=true,linkcolor=red}
+
+% -----------------those length are set specially for chinese
+% \usepackage{beamerthemeshadow} \usetheme{Frankfurt}
+% \setbeamercolor{normal
+% text}{bg=yellow!80!green} %background color using xcolor
+% \setbeamertemplate{navigation symbols}{} %no navigation bar
+% \setbeamertemplate{items}[ball]
+% \hypersetup{colorlinks=true,linkcolor=red}
+\begin{document}
+
+\message{ !name(august_源码.tex) !offset(385) }
+\subsection{X\_igenetic\_probs.pbl}
+基因间区参数比较简单，都是与GC content相关的,主要分为两部分：
+\begin{itemize}
+\item 多联体经验分布
+\item 四阶马尔科夫转移概率\(1024X1的向量\)
+\end{itemize}	
+\begin{lstlisting}
+  [1]
+  #第一项是单碱基碱基组成
+  # (a,c,g,t)= (0.29, 0.21, 0.21, 0.29)
+  #第二项是多联体组成
+  # Probabilities file for the intergenic region model
+  # k = 4 最长多联体的长度（从零开始）
+  # The P_l's
+  [P_ls]
+  # l=0
+  # Values
+  A   0.283
+  C   0.217
+  G   0.217
+  T   0.283
+  # l=1
+  # Values
+  AA  0.0916
+  AC  0.0506
+  AG  0.0717
+  AT  0.0693
+  CA  0.0728
+  CC  0.0586
+  CG  0.0137
+  CT  0.0717
+  GA  0.0596
+  GC  0.048
+  GG  0.0586
+  GT  0.0506
+  TA  0.0592
+  TC  0.0596
+  TG  0.0728
+  TT  0.0916
+  ……
+
+  TTTGT   0.00223
+  TTTTA   0.00303
+  TTTTC   0.00243
+  TTTTG   0.00256
+  TTTTT   0.00707
+  ……
+  [EMISSION]
+  # Vector size (4^(k+1))= 1024
+  # Probabilities
+  # 这里四个一组，和为1.
+  AAAAA   0.3976
+  AAAAC   0.1709
+  AAAAG   0.1564
+  AAAAT   0.2752
+  AAACA   0.389
+  AAACC   0.1645
+  AAACG   0.1778
+  ……
+  # EOF
+\end{lstlisting}
+% ------------------外显子参数文件-----------
+\message{ !name(august_源码.tex) !offset(779) }
+
+\end{document} 

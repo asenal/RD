@@ -1,0 +1,24 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {1}{概述}{3}{0}{1}
+\beamer@sectionintoc {2}{原核基因预测}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Genemark}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Glimmer}{9}{0}{2}
+\beamer@sectionintoc {3}{真核基因预测}{11}{0}{3}
+\beamer@subsectionintoc {3}{1}{生物背景}{11}{0}{3}
+\beamer@subsectionintoc {3}{2}{HMM简介}{14}{0}{3}
+\beamer@subsectionintoc {3}{3}{HMM in augustus}{15}{0}{3}
+\beamer@subsubsectionintoc {3}{3}{1}{外显子建模}{17}{0}{3}
+\beamer@subsubsectionintoc {3}{3}{2}{内含子建模}{20}{0}{3}
+\beamer@subsubsectionintoc {3}{3}{3}{其他子模型}{23}{0}{3}
+\beamer@subsubsectionintoc {3}{3}{4}{转移矩阵}{26}{0}{3}
+\beamer@subsectionintoc {3}{4}{模型的变体}{28}{0}{3}
+\beamer@subsectionintoc {3}{5}{基于GC 含量的训练}{29}{0}{3}
+\beamer@subsectionintoc {3}{6}{利用外部证据推断基因结构}{31}{0}{3}
+\beamer@subsectionintoc {3}{7}{augustus实现}{32}{0}{3}
+\beamer@sectionintoc {4}{用例测试}{33}{0}{4}
+\beamer@subsectionintoc {4}{1}{原核基因}{33}{0}{4}
+\beamer@subsectionintoc {4}{2}{真核基因：Augustus}{34}{0}{4}
+\beamer@subsectionintoc {4}{3}{IMM 模型}{35}{0}{4}
+\beamer@subsectionintoc {4}{4}{ORF 确定基因结构}{36}{0}{4}
+\beamer@subsectionintoc {4}{5}{偏倚数量化}{37}{0}{4}
+\beamer@subsectionintoc {4}{6}{内含子参数确定}{41}{0}{4}

@@ -1,0 +1,154 @@
+#+TITLE:     cloure，generator，iterator
+#+AUTHOR:    lisa
+#+EMAIL:     asenalhere@gmail.com
+#+DATE:      2012-09-21 Fri
+#+DESCRIPTION:python笔记,用单词复数变换的例子介绍正则，闭包，函数对象，生成器，迭代器
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+* Fibonacci 序列
+** 迭代器版本
+#+begin_src python
+class Fib:                                        
+    def __init__(self, max):                      
+        self.max = max
+
+    def __iter__(self):                           
+        self.a = 0
+        self.b = 1
+        return self
+
+    def __next__(self):                           
+        fib = self.a
+        if fib > self.max:
+            raise StopIteration                   
+        self.a, self.b = self.b, self.a + self.b
+        return fib                               
+
+>>> for n in Fib(1000):
+...     print(n, end=' ')
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+#+end_src
+任何定义了'__iter__'的类都可以在'for'语句下激活一个生成器，但是只有在'__next__'定义之后该对象才能进行迭代。
++ 通常'__init__'返回self本身，包含对生成器初始化的语句
++ 通常'__next__'返回迭代器的值，也就是 'for value in ...'中的'value',并需要定义终止条件（raise StopIteration）
+？？ 本质是对象 ？？
+
++    如你所见，for 循环调用 Fib(1000)。 这返回Fib 类的实例。 叫它 fib_inst。
++    背地里，且十分聪明的， for 循环调用 iter(fib_inst)， 它返回迭代器。 叫它 fib_iter。 本例中， fib_iter == fib_inst， 因为 __iter__() 方法返回 self，但for 循环不知道（也不关心）那些。
++    为“循环通过”迭代器， for 循环调用 next(fib_iter)， 它又调用 fib_iter对象的 __next__() 方法，产生下一个菲波拉稀计算并返回值。 for 拿到该值并赋给 n， 然后执行n值的 for 循环体。
++    for循环如何知道什么时候结束？很高兴你问到。 当next(fib_iter) 抛出 StopIteration 异常时， for循环将吞下该异常并优雅退出。 （其他异常将传过并如常抛出。） 在哪里你见过 StopIteration 异常？ 当然在 __next__() 方法。 
+
+** 生成器版本
+#+begin_src python
+def fib(max):
+    a, b = 0, 1          
+    while a < max:
+        yield a          
+        a, b = b, a + b  
+
+>>> for n in fib(1000):  
+...     print(n, end=' ')
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+#+end_src
+生成器要有两个要素，一个是函数体（是的，生成器起码是个函数），然后是一个冻结语句。
+在不需要迭代的环境，把yeild换成return那生成器和普通的函数是差不多的，在迭代环境，yeild能比较克制地每次生成一个返回值然后立即冻结函数，等待下一个迭代过程，所以叫生成器。
+* 复数变换的例子 
+网址在：http://woodpecker.org.cn/diveintopython3/generators.html
+#+begin_src python 
+import re
+def match_sxz(noun):
+    return re.search('[sxz]$', noun)
+def apply_sxz(noun):
+    return re.sub('$', 'es', noun)
+def match_y(noun):                             
+    return re.search('[^aeiou]y$', noun)
+def apply_y(noun):                            
+    return re.sub('y$', 'ies', noun)
+def match_default(noun):
+    return True
+def apply_default(noun):
+    return noun + 's'
+
+rules = ((match_sxz, apply_sxz), (match_y, apply_y), (match_default, apply_default))
+
+def plural(noun):          
+    for matches_rule, apply_rule in rules:      
+        if matches_rule(noun):
+            return apply_rule(noun)
+#+end_src
+
+该技术能够成功运作的原因是 Python 中一切都是对象，包括了函数。数据结构 rules 包含了函数——不是函数的名称，而是实际的函数对象。在 for 循环中被赋值后，matches_rule 和 apply_rule 是可实际调用的函数。
+** 生成器版本
+其实并不是真的有必要为每个匹配和应用规则定义各自的命名函数。它们从未直接被调用，而只是被添加到 rules 序列并从该处被调用。此外，每个函数遵循两种模式的其中之一。所有的匹配函数调用 re.search()，而所有的应用函数调用 re.sub()。让我们将模式排除在考虑因素之外，使新规则定义更加简单。
+#+begin_src python 
+import re
+def build_match_and_apply_functions(pattern, search, replace):
+    def matches_rule(word):                                     
+        return re.search(pattern, word)
+    def apply_rule(word):                                       
+        return re.sub(search, replace, word)
+    return (matches_rule, apply_rule)            
+
+def rules(rules_filename):
+    with open(rules_filename, encoding='utf-8') as pattern_file:
+        for line in pattern_file:
+            pattern, search, replace = line.split(None, 3)                   
+            yield build_match_and_apply_functions(pattern, search, replace)  
+# 有了生成器，可以轻松地处理所有工作：可以读取规则，创建函数并试用它们，如果该规则可用甚至可以不读取文件剩下的部分或创建更多的函数。
+# 主函数
+def plural(noun, rules_filename='plural5-rules.txt'):
+    for matches_rule, apply_rule in rules(rules_filename):                   
+        if matches_rule(noun):
+            return apply_rule(noun)
+    raise ValueError('no matching rule for {0}'.format(noun))  
+#+end_src
+但是限制也很明显：失去了什么？性能！每次调用 plural() 函数，rules() 生成器将从头开始——这意味着重新打开模式文件，并从头开始读取，每次一行。
+#+begin_example 
+模式放在单独的文件中
+[sxz]$               $    es
+[^aeioudgkprt]h$     $    es
+[^aeiou]y$          y$    ies
+$                    $    s
+#+end_example
+
+** 迭代器版本
+#+begin_src python 
+class LazyRules:
+    rules_filename = 'plural6-rules.txt'
+    def __init__(self):
+        self.pattern_file = open(self.rules_filename, encoding='utf-8')
+        self.cache = []
+    def __iter__(self):
+        self.cache_index = 0
+        return self
+    def __next__(self):
+        self.cache_index += 1
+        if len(self.cache) >= self.cache_index:
+            return self.cache[self.cache_index - 1]
+        if self.pattern_file.closed:
+            raise StopIteration
+        line = self.pattern_file.readline()
+        if not line:
+            self.pattern_file.close()
+            raise StopIteration
+        pattern, search, replace = line.split(None,3)
+        funcs = build_match_and_apply_functions(
+            pattern, search, replace)
+        self.cache.append(funcs) #复数规则从文件中读取，存入LazyRules.cache[]中
+        return funcs # 返回值总是一对函数
+rules = LazyRules()
+#+end_src
+因此这是一个实现了 __iter__() 和 __next__()的类。所以它可以 被用作迭代器。然后，你实例化它并将其赋给 rules 。这只发生一次，在import的时候。 
+这里有一些LazyRules 示例需要细想的地方： 模式文件被打开（在 __init__()中），并持续打开直到读取最后一个规则。 当Python退出或最后一个LazyRules 类的实例销毁，Python 会最终关闭文件，但是那仍然可能会是一个很长的时间。如果该类是一个“长时间运行”的Python进程的一部分，Python可能从不退出， LazyRules 对象就可能一直不会释放。
+这种情况有解决办法。 不要在 __init__() 中打开文件并让其在一行一行读取规则时一直打开，你可以打开文件，读取所有规则，并立即关闭文件。或你可以打开文件，读取一条规则，用tell() 方法保存文件位置，关闭文件，后面再次打开它，使用seek() 方法 继续从你离开的地方读取。
+
+*** 总结
+最后总结一下，这个例子只是为了介绍闭包，生成器，迭代器几个概念，例子本身非常简单，用switch语句也可以完美解决，但是想象更复杂的应用……

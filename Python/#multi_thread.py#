@@ -1,0 +1,57 @@
+#!/usr/bin/python2.7
+# this is a test for python multi-thread programming.
+# class Thread( group=None, target=None, name=None, args=(), kwargs={}) 
+#+ 启动这个线程： th.start()
+#+ 等待线程返回： threading.Thread.join(th)， 或者th.join()
+#    for ... :
+#        #锁定，从下一句代码到释放前互斥访问
+#        mut_lock.acquire()
+#        a_account.deposite(1)
+#        #释放
+#        mut_lock.release()
+
+import time,datetime
+import threading
+
+def worker(a_tid,a_account):
+    global mut_lock
+    print "Str " , a_tid, datetime.datetime.now()
+    for i in range(100000):
+        #mut_lock.acquire()
+        a_account.deposite(1)
+        #mut_lock.release()
+    print "End " , a_tid , datetime.datetime.now()
+    
+class Account:
+    def __init__ (self, a_base ):
+        self.m_amount=a_base
+    def deposite(self,a_amount):
+        self.m_amount+=a_amount
+    def withdraw(self,a_amount):
+        self.m_amount-=a_amount    
+        
+if __name__ == "__main__":
+    global mut_lock
+    count = 0
+    dstart = datetime.datetime.now()
+    print "Main Thread Start At: " , dstart
+
+    #init thread_pool
+    thread_pool = []
+    #init mutex
+    mut_lock = threading.Lock()
+    # init thread items
+    acc = Account(100)
+    for i in range(5):
+        th = threading.Thread(target=worker,args=(i,acc) ) ;
+        thread_pool.append(th)
+    # start threads one by one        
+    for i in range(5):
+        thread_pool[i].start()
+    #collect all threads
+    for i in range(5):
+        threading.Thread.join(thread_pool[i])
+    dend = datetime.datetime.now()
+    print "count=",acc.m_amount
+    print "Main Thread End at: " ,dend , " time span " , dend-dstart;
+

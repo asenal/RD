@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="800" width="800" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<path d="M 80 720 L 80 640 L 160 640 L 160 720" fill="none" stroke="black" />
+	<text font-size="13" x="80" y="740">TIGR</text>
+	<text font-size="13" transform="rotate(-90 80,720)" x="80" y="720">0.018486</text>
+	<text font-size="13" x="160" y="740">INDICA</text>
+	<text font-size="13" transform="rotate(-90 160,720)" x="160" y="720">0.019297</text>
+	<path d="M 120 640 L 120 560 L 240 560 L 240 720" fill="none" stroke="black" />
+	<text font-size="13" transform="rotate(-90 120,640)" x="120" y="640">0.043352</text>
+	<text font-size="13" x="240" y="740">OGA</text>
+	<text font-size="13" transform="rotate(-90 240,720)" x="240" y="720">0.091812</text>
+	<path d="M 180 560 L 180 480 L 320 480 L 320 720" fill="none" stroke="black" />
+	<text font-size="13" transform="rotate(-90 180,560)" x="180" y="560">0.046088</text>
+	<text font-size="13" x="320" y="740">OBA</text>
+	<text font-size="13" transform="rotate(-90 320,720)" x="320" y="720">0.056088</text>
+	<!-- 
+	Generated using the Perl SVG Module V2.50
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
+</svg>

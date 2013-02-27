@@ -1,0 +1,426 @@
+{
+   "C81-Skill_and_Luck": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=90", 
+      "unit": "Randomness_and_Random_Walks"
+   }, 
+   "C39-Contagion_Models_2_SIS_Model": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=47", 
+      "unit": "Tipping_Points"
+   }, 
+   "C79-Randomness_and_Random_Walk_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=88", 
+      "unit": "Randomness_and_Random_Walks"
+   }, 
+   "C23-Value_of_Information": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=27", 
+      "unit": "Decision_Models"
+   }, 
+   "C44-Basic_Growth_Model": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=51", 
+      "unit": "Economic_Growth"
+   }, 
+   "C10-The_Standing_Ovation_Model": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=11", 
+      "unit": "Segregation_and_Peer_Effects"
+   }, 
+   "C105-Diversity_Prediction_Theorem": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=114", 
+      "unit": "Prediction_and_the_Many_Model_Thinker"
+   }, 
+   "C9-Peer_Effects": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=10", 
+      "unit": "Segregation_and_Peer_Effects"
+   }, 
+   "C35-The_Big_Coefficient_vs_The_New_Reality": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=43", 
+      "unit": "Categorical_and_Linear_Models"
+   }, 
+   "C1-Why_Model": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=17", 
+      "unit": "Introduction_Why_Model"
+   }, 
+   "C99-Replicator_Dynamics": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=108", 
+      "unit": "Learning_Models_Replicator_Dynamics"
+   }, 
+   "C98-Public_Projects": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=107", 
+      "unit": "Mechanism_Design"
+   }, 
+   "C29-Introduction_to_Linear_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=37", 
+      "unit": "Categorical_and_Linear_Models"
+   }, 
+   "C41-Measuring_Tips": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=72", 
+      "unit": "Tipping_Points"
+   }, 
+   "C33-Reading_Regression_Output": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=40", 
+      "unit": "Categorical_and_Linear_Models"
+   }, 
+   "C75-Networks": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=84", 
+      "unit": "Networks"
+   }, 
+   "C38-Contagion_Models_1_Diffusion": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=46", 
+      "unit": "Tipping_Points"
+   }, 
+   "C48-Problem_Solving_and_Innovation": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=55", 
+      "unit": "Diversity_and_Innovation"
+   }, 
+   "C62-Lyapunov_Fun_and_Deep": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=69", 
+      "unit": "Lyapunov_Functions"
+   }, 
+   "C84-FInite_Memory_Random_Walks": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=93", 
+      "unit": "Randomness_and_Random_Walks"
+   }, 
+   "C51-Teams_and_Problem_Solving": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=58", 
+      "unit": "Diversity_and_Innovation"
+   }, 
+   "C70-Urn_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=79", 
+      "unit": "Path_Dependence"
+   }, 
+   "C59-The_Organization_of_Cities": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=66", 
+      "unit": "Lyapunov_Functions"
+   }, 
+   "C96-Hidden_Action_and_Hidden_Information": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=105", 
+      "unit": "Mechanism_Design"
+   }, 
+   "C31-Linear_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=39", 
+      "unit": "Categorical_and_Linear_Models"
+   }, 
+   "C4-Using_and_Understanding_Data": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=8", 
+      "unit": "Introduction_Why_Model"
+   }, 
+   "C72-Path_Dependence_and_Chaos": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=81", 
+      "unit": "Path_Dependence"
+   }, 
+   "C82-Random_Walks": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=91", 
+      "unit": "Randomness_and_Random_Walks"
+   }, 
+   "C71-Mathematics_on_Urn_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=80", 
+      "unit": "Path_Dependence"
+   }, 
+   "C18-Introduction_to_Decision_Making": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=29", 
+      "unit": "Decision_Models"
+   }, 
+   "C106-The_Many_Model_Thinker": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=115", 
+      "unit": "Prediction_and_the_Many_Model_Thinker"
+   }, 
+   "C40-Classifying_Tipping_Points": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=48", 
+      "unit": "Tipping_Points"
+   }, 
+   "C47-Why_Do_Some_Countries_Not_Grow": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=53", 
+      "unit": "Economic_Growth"
+   }, 
+   "C89-Blotto_and_Competition": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=98", 
+      "unit": "Colonel_Blotto"
+   }, 
+   "C42-Introduction_To_Growth": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=49", 
+      "unit": "Economic_Growth"
+   }, 
+   "C80-Sources_of_Randomness": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=89", 
+      "unit": "Randomness_and_Random_Walks"
+   }, 
+   "C46-WIll_China_Continue_to_Grow": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=54", 
+      "unit": "Economic_Growth"
+   }, 
+   "C91-The_Prisoners'_Dilemma_Game": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=100", 
+      "unit": "Prisoners'_Dilemma_and_Collective_Action"
+   }, 
+   "C88-Blotto_Troop_Advantages": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=97", 
+      "unit": "Colonel_Blotto"
+   }, 
+   "C95-Mechanism_Design": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=104", 
+      "unit": "Mechanism_Design"
+   }, 
+   "C32-Fitting_Lines_to_Data": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=42", 
+      "unit": "Categorical_and_Linear_Models"
+   }, 
+   "C56-Markov_Convergence_Theorem": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=63", 
+      "unit": "Markov_Processes"
+   }, 
+   "C61-Time_to_Convergence_and_Optimality": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=68", 
+      "unit": "Lyapunov_Functions"
+   }, 
+   "C103-Prediction": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=112", 
+      "unit": "Prediction_and_the_Many_Model_Thinker"
+   }, 
+   "C94-No_Panacea": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=103", 
+      "unit": "Prisoners'_Dilemma_and_Collective_Action"
+   }, 
+   "C24-Thinking_Electrons_Modeling_People": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=32", 
+      "unit": "Thinking_Electrons_Modeling_People"
+   }, 
+   "C66-Pure_Coordination_Game": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=77", 
+      "unit": "Coordination_and_Culture"
+   }, 
+   "C2-Intelligent_Citizens_of_the_World": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=19", 
+      "unit": "Introduction_Why_Model"
+   }, 
+   "C16-Cellular_Automata": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=23", 
+      "unit": "Aggregation"
+   }, 
+   "C78-Network_Function": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=87", 
+      "unit": "Networks"
+   }, 
+   "C67-Emergence_of_Culture": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=74", 
+      "unit": "Coordination_and_Culture"
+   }, 
+   "C54-A_Simple_Markov_Model": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=61", 
+      "unit": "Markov_Processes"
+   }, 
+   "C90-Intro_The_Prisoners'_Dilemma_and_Collective_Action": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=99", 
+      "unit": "Prisoners'_Dilemma_and_Collective_Action"
+   }, 
+   "C52-Recombination": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=59", 
+      "unit": "Diversity_and_Innovation"
+   }, 
+   "C45-Solow_Growth_Model": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=52", 
+      "unit": "Economic_Growth"
+   }, 
+   "C65-What_Is_Culture_And_Why_Do_We_Care": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=76", 
+      "unit": "Coordination_and_Culture"
+   }, 
+   "C49-Perspectives_and_Innovation": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=56", 
+      "unit": "Diversity_and_Innovation"
+   }, 
+   "C97-Auctions": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=106", 
+      "unit": "Mechanism_Design"
+   }, 
+   "C19-MultiCriterion_Decision_Making": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=28", 
+      "unit": "Decision_Models"
+   }, 
+   "C50-Heuristics": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=57", 
+      "unit": "Diversity_and_Innovation"
+   }, 
+   "C27-Rule_Based_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=35", 
+      "unit": "Thinking_Electrons_Modeling_People"
+   }, 
+   "C68-Coordination_and_Consistency": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=75", 
+      "unit": "Coordination_and_Culture"
+   }, 
+   "C37-Percolation_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=45", 
+      "unit": "Tipping_Points"
+   }, 
+   "C8-Measuring_Segregation": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=9", 
+      "unit": "Segregation_and_Peer_Effects"
+   }, 
+   "C7-Schelling's_Segregation_Model": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=16", 
+      "unit": "Segregation_and_Peer_Effects"
+   }, 
+   "C86-Blotto_No_Best_Strategy": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=95", 
+      "unit": "Colonel_Blotto"
+   }, 
+   "C55-Markov_Model_of_Democratization": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=62", 
+      "unit": "Markov_Processes"
+   }, 
+   "C64-Coordination_and_Culture": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=73", 
+      "unit": "Coordination_and_Culture"
+   }, 
+   "C13-Central_Limit_Theorem": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=21", 
+      "unit": "Aggregation"
+   }, 
+   "C15-Game_of_Life": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=22", 
+      "unit": "Aggregation"
+   }, 
+   "C104-Linear_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=113", 
+      "unit": "Prediction_and_the_Many_Model_Thinker"
+   }, 
+   "C26-Behavioral_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=34", 
+      "unit": "Thinking_Electrons_Modeling_People"
+   }, 
+   "C74-Path_Dependent_or_Tipping_Point": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=83", 
+      "unit": "Path_Dependence"
+   }, 
+   "C77-The_Logic_of_Network_Formation": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=86", 
+      "unit": "Networks"
+   }, 
+   "C100-The_Replicator_Equation": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=109", 
+      "unit": "Learning_Models_Replicator_Dynamics"
+   }, 
+   "C63-Lyapunov_or_Markov": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=70", 
+      "unit": "Lyapunov_Functions"
+   }, 
+   "C101-Fisher's_Theorem": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=110", 
+      "unit": "Learning_Models_Replicator_Dynamics"
+   }, 
+   "C85-Colonel_Blotto_Game": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=94", 
+      "unit": "Colonel_Blotto"
+   }, 
+   "C11-The_Identification_Problem": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=12", 
+      "unit": "Segregation_and_Peer_Effects"
+   }, 
+   "C69-Path_Dependence": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=78", 
+      "unit": "Path_Dependence"
+   }, 
+   "C34-From_Linear_to_Nonlinear": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=41", 
+      "unit": "Categorical_and_Linear_Models"
+   }, 
+   "C53-Markov_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=60", 
+      "unit": "Markov_Processes"
+   }, 
+   "C102-Variation_or_Six_Sigma": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=111", 
+      "unit": "Learning_Models_Replicator_Dynamics"
+   }, 
+   "C43-Exponential_Growth": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=50", 
+      "unit": "Economic_Growth"
+   }, 
+   "C93-Collective_Action_and_Common_Pool_Resource_Problems": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=102", 
+      "unit": "Prisoners'_Dilemma_and_Collective_Action"
+   }, 
+   "C73-Path_Dependence_and_Increasing_Returns": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=82", 
+      "unit": "Path_Dependence"
+   }, 
+   "C25-Rational_Actor_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=33", 
+      "unit": "Thinking_Electrons_Modeling_People"
+   }, 
+   "C83-Random_Walks_and_Wall_Street": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=92", 
+      "unit": "Randomness_and_Random_Walks"
+   }, 
+   "C22-Decision_Trees": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=26", 
+      "unit": "Decision_Models"
+   }, 
+   "C20-Spatial_Choice_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=31", 
+      "unit": "Decision_Models"
+   }, 
+   "C3-Thinking_More_Clearly": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=6", 
+      "unit": "Introduction_Why_Model"
+   }, 
+   "C17-Preference_Aggregation": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=24", 
+      "unit": "Aggregation"
+   }, 
+   "C30-Categorical_Models": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=38", 
+      "unit": "Categorical_and_Linear_Models"
+   }, 
+   "C6-Sorting_and_Peer_Effects_Introduction": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=15", 
+      "unit": "Segregation_and_Peer_Effects"
+   }, 
+   "C57-Exapting_the_Markov_Model": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=64", 
+      "unit": "Markov_Processes"
+   }, 
+   "C58-Lyapunov_Functions": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=65", 
+      "unit": "Lyapunov_Functions"
+   }, 
+   "C12-Aggregation": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=20", 
+      "unit": "Aggregation"
+   }, 
+   "C87-Applications_of_Colonel_Blotto": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=96", 
+      "unit": "Colonel_Blotto"
+   }, 
+   "C28-When_Does_Behavior_Matter": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=36", 
+      "unit": "Thinking_Electrons_Modeling_People"
+   }, 
+   "C21-Probability_The_Basics": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=30", 
+      "unit": "Decision_Models"
+   }, 
+   "C92-Seven_Ways_To_Cooperation": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=101", 
+      "unit": "Prisoners'_Dilemma_and_Collective_Action"
+   }, 
+   "C76-The_Structure_of_Networks": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=85", 
+      "unit": "Networks"
+   }, 
+   "C60-Exchange_Economies_and_Externalities": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=67", 
+      "unit": "Lyapunov_Functions"
+   }, 
+   "C5-Using_Models_to_Decide_Strategize_and_Design": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=18", 
+      "unit": "Introduction_Why_Model"
+   }, 
+   "C14-Six_Sigma": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=25", 
+      "unit": "Aggregation"
+   }, 
+   "C36-Tipping_Points": {
+      "href": "https://class.coursera.org/modelthinking/lecture/preview_view?lecture_id=44", 
+      "unit": "Tipping_Points"
+   }
+}

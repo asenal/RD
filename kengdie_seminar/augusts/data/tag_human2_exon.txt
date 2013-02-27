@@ -1,0 +1,527 @@
+#exon model parameters
+# begin of content independent part
+# Length distributions
+# maximal individually stored length probability =
+# slope of smoothing bandwidth =
+# smoothing minwindowcount =
+# length single  initial  internal  terminal
+# total number of exons of above types
+# number of exons exceeding length d
+# 1000 P(len=k), k=0,1,..., 3000
+# end of content independent part
+# data set number
+# (a,c,g,t)= (0.29, 0.21, 0.21, 0.29)
+#
+# Probabilities file for the exon model
+#
+# Die P_l's
+# k = 4
+# l=
+# Values
+# l=
+# Values
+# l=
+# Values
+tag	0.0104	     0.00674	     1.31e-05
+# l=
+# Values
+atag	0.00269	     0.00209	     3.29e-06
+ctag	0.00248	     0.00162	     3.29e-06
+gtag	0.0027	     0.00126	     3.29e-06
+taga	3.28e-06	     0.00457	     0.0019
+tagc	3.28e-06	     0.00215	     0.00196
+tagg	3.28e-06	     0.00154	     0.00114
+tagt	3.28e-06	     0.00166	     0.00212
+ttag	0.00257	     0.00178	     3.29e-06
+# l=
+# Values
+aatag	0.000724	     0.000606	     8.21e-07
+actag	0.000549	     0.000378	     8.21e-07
+agtag	0.000866	     0.000492	     8.21e-07
+ataga	8.2e-07	     0.00114	     0.000608
+atagc	8.2e-07	     0.000547	     0.000634
+atagg	8.2e-07	     0.000372	     0.000327
+atagt	8.2e-07	     0.000495	     0.000639
+attag	0.000579	     0.000424	     8.21e-07
+catag	0.000883	     0.000386	     8.21e-07
+cctag	0.000739	     0.000437	     8.21e-07
+cgtag	0.000211	     0.000143	     8.21e-07
+ctaga	8.2e-07	     0.00116	     0.000465
+ctagc	8.2e-07	     0.000444	     0.000439
+ctagg	8.2e-07	     0.000394	     0.000303
+ctagt	8.2e-07	     0.000359	     0.000496
+cttag	0.000716	     0.00041	     8.21e-07
+gatag	0.000579	     0.000659	     8.21e-07
+gctag	0.000614	     0.000345	     8.21e-07
+ggtag	0.000613	     0.000276	     8.21e-07
+gtaga	8.2e-07	     0.00112	     0.000311
+gtagc	8.2e-07	     0.000598	     0.000411
+gtagg	8.2e-07	     0.000404	     0.000211
+gtagt	8.2e-07	     0.000438	     0.000393
+gttag	0.000418	     0.000338	     8.21e-07
+tagaa	0.00065	     0.00322	     0.00187
+tagac	0.000354	     0.00121	     0.000745
+tagag	0.000651	     0.00152	     0.00119
+tagat	0.000245	     0.00154	     0.00101
+tagca	0.00082	     0.002	     0.000785
+tagcc	0.000545	     0.00146	     0.000653
+tagcg	0.000147	     0.000787	     0.000107
+tagct	0.000447	     0.00198	     0.000724
+tagga	0.000438	     0.00336	     0.000578
+taggc	0.000275	     0.00158	     0.000379
+taggg	0.000271	     0.00108	     0.000354
+taggt	0.000157	     0.00112	     0.000313
+tagta	0.000467	     0.000572	     0.000355
+tagtc	0.000469	     0.000924	     0.000287
+tagtg	0.000798	     0.000801	     0.000676
+tagtt	0.000387	     0.00117	     0.00043
+tatag	0.000508	     0.000438	     8.21e-07
+tctag	0.00058	     0.000457	     8.21e-07
+tgtag	0.00101	     0.000347	     8.21e-07
+ttaga	8.2e-07	     0.00114	     0.000514
+ttagc	8.2e-07	     0.000566	     0.000477
+ttagg	8.2e-07	     0.000368	     0.000294
+ttagt	8.2e-07	     0.00037	     0.000595
+tttag	0.000854	     0.000604	     8.21e-07
+# translation initiation motif
+# width of motif, n=
+# order of markov model, k=
+# markov chain emission probabilities
+# dss upstream motif, reading frame 0(reverse)
+# width of motif, n=
+# order of markov model, k=
+# markov chain emission probabilities
+# dss upstream motif, reading frame 1(reverse)
+# width of motif, n=
+# order of markov model, k=
+# markov chain emission probabilities
+# dss upstream motif, reading frame 2(reverse)
+# width of motif, n=
+# order of markov model, k=
+# markov chain emission probabilities
+#
+# Emission probabilities
+#
+# Size of vector
+# k : order of the markov model
+# patpseudocount (pseudocount of sequence patterns)
+# Probabilities
+# Format: pattern win0 win1 win2
+aatag	0.2958	0.1506	0.000438
+actag	0.3103	0.1718	0.0003208
+agtag	0.3534	0.2067	0.0003401
+ataga	0.25	0.4215	0.2773
+atagc	0.25	0.2184	0.2825
+atagg	0.25	0.1461	0.1491
+atagt	0.25	0.1918	0.2936
+attag	0.2677	0.1393	0.0004356
+catag	0.3643	0.167	0.00064
+cctag	0.3416	0.1779	0.000297
+cgtag	0.3948	0.2064	0.002149
+ctaga	0.25	0.4691	0.2729
+ctagc	0.25	0.184	0.258
+ctagg	0.25	0.1667	0.1792
+ctagt	0.25	0.1524	0.2914
+cttag	0.3151	0.1616	0.0005157
+gatag	0.3302	0.1566	0.001079
+gctag	0.3167	0.1366	0.0003744
+ggtag	0.3769	0.1929	0.0009558
+gtaga	0.25	0.4388	0.2343
+gtagc	0.25	0.2331	0.3075
+gtagg	0.25	0.154	0.1592
+gtagt	0.25	0.1705	0.3023
+gttag	0.2652	0.1604	0.0008957
+tagaa	0.3407	0.43	0.3735
+tagac	0.1821	0.162	0.1509
+tagag	0.3464	0.2027	0.2421
+tagat	0.1314	0.2053	0.201
+tagca	0.4132	0.3207	0.3392
+tagcc	0.2767	0.2339	0.2864
+tagcg	0.07459	0.1265	0.04691
+tagct	0.2287	0.3189	0.3312
+tagga	0.3882	0.4701	0.3521
+taggc	0.2437	0.2215	0.2275
+taggg	0.2384	0.1517	0.2194
+taggt	0.1374	0.1567	0.1924
+tagta	0.2274	0.1652	0.2021
+tagtc	0.2275	0.267	0.1644
+tagtg	0.377	0.2312	0.3828
+tagtt	0.1822	0.3366	0.2483
+tatag	0.2773	0.1703	0.001053
+tctag	0.2984	0.1878	0.0002884
+tgtag	0.3245	0.1619	0.0003741
+ttaga	0.25	0.4574	0.2732
+ttagc	0.25	0.2338	0.253
+ttagg	0.25	0.1484	0.1579
+ttagt	0.25	0.152	0.3235
+tttag	0.2988	0.1733	0.0004894
+#
+# Initial emission probabilities
+#
+# Size of vector
+# k : order of the markov model
+# patpseudocount (pseudocount of sequence patterns)
+# Probabilities
+# Format: pattern win0 win1 win2
+aatag     	0.308     	0.217     	0.0897
+actag     	0.386     	0.139     	0.0439
+agtag     	0.326     	0.292     	0.0694
+ataga     	0.25     	0.401     	0.294
+atagc     	0.25     	0.237     	0.308
+atagg     	0.25     	0.169     	0.164
+atagt     	0.25     	0.193     	0.233
+attag     	0.328     	0.156     	0.0613
+catag     	0.308     	0.217     	0.0897
+cctag     	0.386     	0.139     	0.0439
+cgtag     	0.326     	0.292     	0.0694
+ctaga     	0.25     	0.401     	0.294
+ctagc     	0.25     	0.237     	0.308
+ctagg     	0.25     	0.169     	0.164
+ctagt     	0.25     	0.193     	0.233
+cttag     	0.328     	0.156     	0.0613
+gatag     	0.308     	0.217     	0.0897
+gctag     	0.386     	0.139     	0.0439
+ggtag     	0.326     	0.292     	0.0694
+gtaga     	0.25     	0.401     	0.294
+gtagc     	0.25     	0.237     	0.308
+gtagg     	0.25     	0.169     	0.164
+gtagt     	0.25     	0.193     	0.233
+gttag     	0.328     	0.156     	0.0613
+tagaa     	0.289     	0.358     	0.296
+tagac     	0.228     	0.206     	0.215
+tagag     	0.309     	0.252     	0.261
+tagat     	0.173     	0.185     	0.227
+tagca     	0.241     	0.214     	0.275
+tagcc     	0.344     	0.317     	0.322
+tagcg     	0.249     	0.181     	0.202
+tagct     	0.166     	0.288     	0.201
+tagga     	0.361     	0.399     	0.299
+taggc     	0.242     	0.295     	0.313
+taggg     	0.266     	0.159     	0.232
+taggt     	0.131     	0.147     	0.156
+tagta     	0.215     	0.11     	0.149
+tagtc     	0.235     	0.399     	0.258
+tagtg     	0.359     	0.192     	0.411
+tagtt     	0.192     	0.299     	0.182
+tatag     	0.308     	0.217     	0.0897
+tctag     	0.386     	0.139     	0.0439
+tgtag     	0.326     	0.292     	0.0694
+ttaga     	0.25     	0.401     	0.294
+ttagc     	0.25     	0.237     	0.308
+ttagg     	0.25     	0.169     	0.164
+ttagt     	0.25     	0.193     	0.233
+tttag     	0.328     	0.156     	0.0613
+#
+# Internal exon terminal emission probabilities
+#
+# Size of vector
+# k : order of the markov model
+# patpseudocount (pseudocount of sequence patterns)
+# Probabilities
+# Format: pattern win0 win1 win2
+aatag     	0.334     	0.109     	0.00903
+actag     	0.378     	0.177     	0.00778
+agtag     	0.284     	0.131     	0.013
+ataga     	0.25     	0.553     	0.368
+atagc     	0.25     	0.11     	0.215
+atagg     	0.25     	0.0703     	0.143
+atagt     	0.25     	0.267     	0.274
+attag     	0.343     	0.167     	0.012
+catag     	0.283     	0.126     	0.0194
+cctag     	0.381     	0.104     	0.00914
+cgtag     	0.256     	0.184     	0.0174
+ctaga     	0.25     	0.451     	0.389
+ctagc     	0.25     	0.241     	0.146
+ctagg     	0.25     	0.157     	0.176
+ctagt     	0.25     	0.15     	0.289
+cttag     	0.195     	0.0764     	0.0166
+gatag     	0.276     	0.0811     	0.0161
+gctag     	0.274     	0.171     	0.0126
+ggtag     	0.256     	0.206     	0.0174
+gtaga     	0.25     	0.335     	0.342
+gtagc     	0.25     	0.347     	0.195
+gtagg     	0.25     	0.0814     	0.142
+gtagt     	0.25     	0.237     	0.321
+gttag     	0.312     	0.185     	0.0144
+tagaa     	0.351     	0.4     	0.308
+tagac     	0.212     	0.16     	0.173
+tagag     	0.364     	0.201     	0.255
+tagat     	0.0728     	0.24     	0.265
+tagca     	0.371     	0.338     	0.402
+tagcc     	0.283     	0.221     	0.292
+tagcg     	0.112     	0.0712     	0.0287
+tagct     	0.234     	0.37     	0.278
+tagga     	0.451     	0.551     	0.424
+taggc     	0.25     	0.212     	0.226
+taggg     	0.198     	0.148     	0.172
+taggt     	0.102     	0.0893     	0.177
+tagta     	0.322     	0.15     	0.249
+tagtc     	0.16     	0.261     	0.268
+tagtg     	0.38     	0.213     	0.194
+tagtt     	0.139     	0.376     	0.289
+tatag     	0.234     	0.121     	0.0161
+tctag     	0.231     	0.181     	0.00916
+tgtag     	0.239     	0.203     	0.0124
+ttaga     	0.25     	0.542     	0.266
+ttagc     	0.25     	0.237     	0.28
+ttagg     	0.25     	0.0688     	0.158
+ttagt     	0.25     	0.153     	0.296
+tttag     	0.25     	0.113     	0.0112
+# data set number
+# (a,c,g,t)= (0.265, 0.235, 0.235, 0.265)
+#
+# Probabilities file for the exon model
+#
+# Die P_l's
+# k = 4
+# l=
+# Values
+# l=
+# Values
+# l=
+# Values
+tag	0.00874	     0.0054	     1.34e-05
+# l=
+# Values
+atag	0.00219	     0.00163	     3.36e-06
+ctag	0.00229	     0.00133	     3.36e-06
+gtag	0.0023	     0.00104	     3.36e-06
+taga	3.35e-06	     0.00379	     0.00141
+tagc	3.35e-06	     0.00183	     0.00176
+tagg	3.35e-06	     0.00135	     0.000941
+tagt	3.35e-06	     0.00136	     0.00158
+ttag	0.00196	     0.0014	     3.36e-06
+# l=
+# Values
+aatag	0.000522	     0.000472	     8.4e-07
+actag	0.000435	     0.00029	     8.4e-07
+agtag	0.000674	     0.000388	     8.4e-07
+ataga	8.38e-07	     0.000942	     0.000451
+atagc	8.38e-07	     0.000439	     0.000553
+atagg	8.38e-07	     0.000319	     0.000255
+atagt	8.38e-07	     0.000389	     0.000459
+attag	0.000411	     0.000331	     8.4e-07
+catag	0.000802	     0.000306	     8.4e-07
+cctag	0.000757	     0.000395	     8.4e-07
+cgtag	0.000223	     0.000128	     8.4e-07
+ctaga	8.38e-07	     0.00105	     0.000352
+ctagc	8.38e-07	     0.000434	     0.000406
+ctagg	8.38e-07	     0.000372	     0.000271
+ctagt	8.38e-07	     0.000326	     0.000369
+cttag	0.000606	     0.000341	     8.4e-07
+gatag	0.000514	     0.000513	     8.4e-07
+gctag	0.000601	     0.000282	     8.4e-07
+ggtag	0.000585	     0.000241	     8.4e-07
+gtaga	8.38e-07	     0.000942	     0.000226
+gtagc	8.38e-07	     0.000515	     0.000379
+gtagg	8.38e-07	     0.000373	     0.000179
+gtagt	8.38e-07	     0.000358	     0.000311
+gttag	0.000332	     0.000264	     8.4e-07
+tagaa	0.000473	     0.00322	     0.00142
+tagac	0.000267	     0.00128	     0.000679
+tagag	0.000493	     0.00157	     0.00111
+tagat	0.000174	     0.0016	     0.000782
+tagca	0.000698	     0.0021	     0.000605
+tagcc	0.000509	     0.0016	     0.000624
+tagcg	0.000152	     0.00099	     0.000105
+tagct	0.000397	     0.00232	     0.000585
+tagga	0.000347	     0.00373	     0.000458
+taggc	0.000239	     0.00189	     0.000373
+taggg	0.000242	     0.00127	     0.000338
+taggt	0.000119	     0.0013	     0.000253
+tagta	0.000328	     0.000607	     0.000255
+tagtc	0.000346	     0.000925	     0.000242
+tagtg	0.00063	     0.000839	     0.000599
+tagtt	0.000276	     0.00115	     0.000328
+tatag	0.000355	     0.000339	     8.4e-07
+tctag	0.000492	     0.000364	     8.4e-07
+tgtag	0.00082	     0.000285	     8.4e-07
+ttaga	8.38e-07	     0.000863	     0.000376
+ttagc	8.38e-07	     0.000438	     0.000421
+ttagg	8.38e-07	     0.000288	     0.000237
+ttagt	8.38e-07	     0.000285	     0.000442
+tttag	0.000611	     0.000462	     8.4e-07
+# translation initiation motif
+# width of motif, n=
+# order of markov model, k=
+# markov chain emission probabilities
+# dss upstream motif, reading frame 0(reverse)
+# width of motif, n=
+# order of markov model, k=
+# markov chain emission probabilities
+# dss upstream motif, reading frame 1(reverse)
+# width of motif, n=
+# order of markov model, k=
+# markov chain emission probabilities
+# dss upstream motif, reading frame 2(reverse)
+# width of motif, n=
+# order of markov model, k=
+# markov chain emission probabilities
+#
+# Emission probabilities
+#
+# Size of vector
+# k : order of the markov model
+# patpseudocount (pseudocount of sequence patterns)
+# Probabilities
+# Format: pattern win0 win1 win2
+aatag	0.3031	0.1547	0.0005563
+actag	0.325	0.1691	0.0003122
+agtag	0.3653	0.2054	0.0003283
+ataga	0.25	0.4521	0.2639
+atagc	0.25	0.2084	0.3212
+atagg	0.25	0.153	0.1478
+atagt	0.25	0.1844	0.2665
+attag	0.2824	0.1379	0.0005412
+catag	0.3913	0.1678	0.0007976
+cctag	0.3604	0.1855	0.000274
+cgtag	0.4225	0.2074	0.001991
+ctaga	0.25	0.4851	0.2476
+ctagc	0.25	0.1969	0.2906
+ctagg	0.25	0.1694	0.1932
+ctagt	0.25	0.1495	0.2641
+cttag	0.3299	0.1665	0.0006152
+gatag	0.3556	0.1558	0.001361
+gctag	0.327	0.1346	0.0003427
+ggtag	0.3904	0.1988	0.0009735
+gtaga	0.25	0.4297	0.2077
+gtagc	0.25	0.2337	0.3437
+gtagg	0.25	0.1707	0.1644
+gtagt	0.25	0.1619	0.2814
+gttag	0.2735	0.1618	0.001092
+tagaa	0.3363	0.4197	0.3596
+tagac	0.1901	0.1673	0.1713
+tagag	0.3497	0.2046	0.2772
+tagat	0.1233	0.2084	0.1994
+tagca	0.393	0.3	0.3085
+tagcc	0.287	0.2283	0.3264
+tagcg	0.08668	0.1412	0.05447
+tagct	0.2285	0.3305	0.3053
+tagga	0.3647	0.4551	0.3245
+taggc	0.2562	0.2305	0.2613
+taggg	0.2547	0.1556	0.2359
+taggt	0.1255	0.1589	0.1784
+tagta	0.2078	0.1723	0.1783
+tagtc	0.2188	0.2625	0.1696
+tagtg	0.3933	0.2379	0.4241
+tagtt	0.1746	0.3273	0.2275
+tatag	0.2771	0.1639	0.001428
+tctag	0.3163	0.1824	0.0002668
+tgtag	0.3439	0.1622	0.0003758
+ttaga	0.25	0.4695	0.2554
+ttagc	0.25	0.2347	0.286
+ttagg	0.25	0.1536	0.1608
+ttagt	0.25	0.1537	0.2989
+tttag	0.3053	0.1686	0.0006277
+#
+# Initial emission probabilities
+#
+# Size of vector
+# k : order of the markov model
+# patpseudocount (pseudocount of sequence patterns)
+# Probabilities
+# Format: pattern win0 win1 win2
+aatag     	0.309     	0.2     	0.101
+actag     	0.403     	0.136     	0.0459
+agtag     	0.332     	0.283     	0.0676
+ataga     	0.25     	0.403     	0.273
+atagc     	0.25     	0.227     	0.338
+atagg     	0.25     	0.18     	0.165
+atagt     	0.25     	0.189     	0.223
+attag     	0.306     	0.143     	0.0699
+catag     	0.309     	0.2     	0.101
+cctag     	0.403     	0.136     	0.0459
+cgtag     	0.332     	0.283     	0.0676
+ctaga     	0.25     	0.403     	0.273
+ctagc     	0.25     	0.227     	0.338
+ctagg     	0.25     	0.18     	0.165
+ctagt     	0.25     	0.189     	0.223
+cttag     	0.306     	0.143     	0.0699
+gatag     	0.309     	0.2     	0.101
+gctag     	0.403     	0.136     	0.0459
+ggtag     	0.332     	0.283     	0.0676
+gtaga     	0.25     	0.403     	0.273
+gtagc     	0.25     	0.227     	0.338
+gtagg     	0.25     	0.18     	0.165
+gtagt     	0.25     	0.189     	0.223
+gttag     	0.306     	0.143     	0.0699
+tagaa     	0.272     	0.351     	0.277
+tagac     	0.239     	0.205     	0.224
+tagag     	0.332     	0.262     	0.291
+tagat     	0.157     	0.182     	0.208
+tagca     	0.242     	0.196     	0.269
+tagcc     	0.353     	0.318     	0.328
+tagcg     	0.244     	0.201     	0.211
+tagct     	0.161     	0.285     	0.192
+tagga     	0.346     	0.395     	0.277
+taggc     	0.228     	0.3     	0.352
+taggg     	0.312     	0.156     	0.24
+taggt     	0.113     	0.15     	0.131
+tagta     	0.211     	0.116     	0.146
+tagtc     	0.25     	0.394     	0.277
+tagtg     	0.342     	0.194     	0.423
+tagtt     	0.197     	0.296     	0.155
+tatag     	0.309     	0.2     	0.101
+tctag     	0.403     	0.136     	0.0459
+tgtag     	0.332     	0.283     	0.0676
+ttaga     	0.25     	0.403     	0.273
+ttagc     	0.25     	0.227     	0.338
+ttagg     	0.25     	0.18     	0.165
+ttagt     	0.25     	0.189     	0.223
+tttag     	0.306     	0.143     	0.0699
+#
+# Internal exon terminal emission probabilities
+#
+# Size of vector
+# k : order of the markov model
+# patpseudocount (pseudocount of sequence patterns)
+# Probabilities
+# Format: pattern win0 win1 win2
+aatag     	0.31     	0.117     	0.0112
+actag     	0.38     	0.166     	0.00702
+agtag     	0.299     	0.109     	0.0111
+ataga     	0.25     	0.602     	0.311
+atagc     	0.25     	0.0937     	0.242
+atagg     	0.25     	0.0562     	0.142
+atagt     	0.25     	0.248     	0.305
+attag     	0.337     	0.165     	0.0146
+catag     	0.289     	0.14     	0.0195
+cctag     	0.427     	0.0998     	0.00774
+cgtag     	0.267     	0.181     	0.0167
+ctaga     	0.25     	0.447     	0.36
+ctagc     	0.25     	0.273     	0.195
+ctagg     	0.25     	0.151     	0.162
+ctagt     	0.25     	0.129     	0.283
+cttag     	0.249     	0.0743     	0.0175
+gatag     	0.276     	0.0783     	0.0195
+gctag     	0.293     	0.17     	0.0104
+ggtag     	0.267     	0.181     	0.0167
+gtaga     	0.25     	0.345     	0.311
+gtagc     	0.25     	0.321     	0.242
+gtagg     	0.25     	0.112     	0.142
+gtagt     	0.25     	0.222     	0.305
+gttag     	0.283     	0.212     	0.0175
+tagaa     	0.32     	0.376     	0.278
+tagac     	0.211     	0.17     	0.211
+tagag     	0.341     	0.205     	0.277
+tagat     	0.128     	0.249     	0.233
+tagca     	0.348     	0.312     	0.317
+tagcc     	0.323     	0.226     	0.382
+tagcg     	0.12     	0.0795     	0.0397
+tagct     	0.21     	0.383     	0.261
+tagga     	0.445     	0.543     	0.411
+taggc     	0.248     	0.217     	0.239
+taggg     	0.219     	0.143     	0.188
+taggt     	0.0881     	0.0971     	0.162
+tagta     	0.287     	0.174     	0.242
+tagtc     	0.173     	0.262     	0.273
+tagtg     	0.386     	0.195     	0.239
+tagtt     	0.154     	0.369     	0.245
+tatag     	0.223     	0.114     	0.0195
+tctag     	0.337     	0.204     	0.00809
+tgtag     	0.247     	0.199     	0.012
+ttaga     	0.25     	0.5     	0.311
+ttagc     	0.25     	0.249     	0.242
+ttagg     	0.25     	0.0917     	0.142
+ttagt     	0.25     	0.16     	0.305
+tttag     	0.257     	0.108     	0.0139

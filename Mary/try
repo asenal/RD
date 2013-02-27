@@ -1,0 +1,58 @@
+#!/usr/bin/perl -w
+use strict;
+use Data::Dumper;
+
+my ($me,$flag,$i,$j,$count,$specinum,$seq,$tmp,$GC,$line,$subline,$index,$block)	;
+my (@lines,@sublines,@tmps,@seqs,@alphabeta,@nscore,@subnscore,@content);
+my (%Mary,%Score);
+
+## count the number of species ##
+open MAF,"<",$ARGV[0];
+$/="\n\n";
+$seq=<MAF>;
+@lines=split /\n/ ,$seq;
+$specinum=$#lines;
+# the "a score=***" line doesn't count.
+close MAF;
+print "the number of species is :$specinum\n" ;
+
+## cumulate the n base score for each  aligned row ## 
+open MAF,"<",$ARGV[0];
+$/="\n\n";
+while($block=<MAF>){
+				my @lines=split /\n/ ,$block;
+				$index=-1;
+				shift @lines; # shift the "a score=**" line.
+				@subnscore=();				
+				foreach $subline (@lines){
+								$index++;
+								@tmps=split /\s+/,$subline;
+								$seq=$tmps[6];
+								$seq=~ tr/acgtACGT-/012301234/;
+
+								@seqs=split //,$seq;
+								$count=-1;
+								foreach $me (@seqs){
+												$count++;
+												$subnscore[$count]+=($seqs[$count]*(5**$index));
+								}
+## cumulate the 'ACGT-' content for each subline##
+								{
+												$tmp=$seq =~ tr/0//;print "$tmp\n";$content[0]+=$tmp;
+												$tmp=$seq =~ tr/1//;print "$tmp\n";$content[1]+=$tmp;
+												$tmp=$seq =~ tr/2//;print "$tmp\n";$content[2]+=$tmp;
+												$tmp=$seq =~ tr/3//;print "$tmp\n";$content[3]+=$tmp;
+												$tmp=$seq =~ tr/4//;print "$tmp\n";$content[4]+=$tmp;
+								}
+				}
+				push @nscore,@subnscore;
+}
+close MAF;			
+@{$Mary{"content"}}=@content;
+@{$Mary{"nscore"}}=@nscore;
+${$Mary{"specinum"}}=$specinum;
+
+
+
+
+

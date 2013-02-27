@@ -1,0 +1,13 @@
+>states
+^_^ >_<
+>symbols
+smile weep
+>starts
+0.8 0.2
+>transProbs
+0.8 0.2
+0.3 0.7
+>emissProbs
+0.7 0.3 
+0.2 0.8
+>#
