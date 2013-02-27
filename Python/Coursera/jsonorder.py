@@ -1,15 +1,20 @@
 #!/usr/bin/python2.7
-import json,os,sys
+import json,sys,os
 from getopt import getopt
-opts,args=getopt(sys.argv[1:],'i:o:')
-for (key,value) in opts:
-    if key == '-i':
-        input=value
-        print 'input is %s' % input
+opts,args=getopt(sys.argv[1:],'f:o:')
+for key,value in opts:
+    if key == '-f':
+        print 'json file is %s' % value
+        J=value
     if key == '-o':
-        output=value
-        print 'input is %s' % output
+        print 'output is %s' % value
+        out=value
 
-print args
+J='PGM.json'
+with open(J,'r') as f:
+    records=json.load(f)
+keys=records.keys()
 
-#with open('')
+
+
+    
