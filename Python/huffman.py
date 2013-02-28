@@ -5,6 +5,7 @@ def select(li,n):
             t.append(i)
     t.sort()
     return (li.index(t[0]),li.index(t[1]))
+
 def HuffmanCoding(lis):
     li = []
     for i in range(15):
@@ -15,6 +16,7 @@ def HuffmanCoding(lis):
         li[2],li[3] = s1,s2
         li[0] = li[s1][0] + li[s2][0]
     return li,lis
+
 def Single_Code(li,lis):
     huf = []
     for i in range(8):
@@ -30,12 +32,14 @@ def Single_Code(li,lis):
         s = ''.join(s)
         huf.append(s)
     return huf
+
 def Coding(s,l):
     res = ''
     d = dict(l)
     for t in s:
         res += d.get(t)
     return res
+
 def DeCoding(s,li):
     s = list(s)
     res = ''

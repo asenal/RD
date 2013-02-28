@@ -1,18 +1,3 @@
-# Copyright (c) 2013 the authors listed at the following URL, and/or
-# the authors of referenced articles or incorporated external code:
-# http://en.literateprograms.org/Huffman_coding_(Python)?action=history&offset=20081223225116
-# 
-# Permission is hereby granted, free of charge, to any person obtaining
-# a copy of this software and associated documentation files (the
-# "Software"), to deal in the Software without restriction, including
-# without limitation the rights to use, copy, modify, merge, publish,
-# distribute, sublicense, and/or sell copies of the Software, and to
-# permit persons to whom the Software is furnished to do so, subject to
-# the following conditions:
-# 
-# The above copyright notice and this permission notice shall be
-# included in all copies or substantial portions of the Software.
-# 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
@@ -33,12 +18,14 @@ def makeHuffTree(symbolTupleList):
       parent = (childL[0] + childR[0], childL, childR)
       heapq.heappush(trees, parent)
    return trees[0]
+
 def printHuffTree(huffTree, prefix = ''):
    if len(huffTree) == 2:
       print huffTree[1], prefix
    else:
       printHuffTree(huffTree[1], prefix + '0')
       printHuffTree(huffTree[2], prefix + '1')
+
 exampleData = [
   (0.124167  , 'e'),   
   (0.0969225 , 't'),   
